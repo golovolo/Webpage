@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GOLOVOLO</title>
+    <style>
+        :root {
+            --content-width: 100%; /* Изначальное значение */
+        }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        scroll-behavior: smooth;
+        
+    }
+    
+    body::before, body::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 25%;
+        height: var(--body-height);
+        background-image: url('imgs/wallpaper2.png');
+        background-repeat: repeat-y;
+        background-position: center;
+        background-size: 200%, cover;
+        
+        z-index: -1;
+    }
+
+    body::before {
+        left: 0;
+        transform: translateX(0%); /* Moves the image to the left */
+    }
+
+    body::after {
+        right: 0;
+        transform: translateX(0%); /* Moves the image to the right */
+    }
+    .hide-background::before,
+    .hide-background::after {
+        display: none;
+    }
+    
+    .content {
+        position: relative;
+        #max-width: 50%;
+        #padding-left: 25%;
+        #padding-bottom: 30px;
+        #--content-width: calc(100% - 50%);
+    }
+
+    
+    /* Если ширина экрана не превышает 20 см */
+    @media (max-width: 15cm) {
+        .content {
+            #max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+            width: 100%;
+            #--content-width: width;
+        }
+        body::before,
+        body::after {
+            display: none;
+        }
+        .subsection {
+            #font-size: calc(var(width) * 0.3);
+        }
+    }
+
+    /* Если ширина экрана от 20 до 30 см */
+    @media (min-width: 15cm) and (max-width: 30cm) {
+        .content {
+            width: 15cm;
+            #max-width: 20cm;
+            padding-left: calc((100% - 15cm) / 2);
+            padding-right: calc((100% - 15cm) / 2);
+            
+            #--content-width: width;
+        }
+        body::after {
+            display: none;
+        }
+        .subsection {
+            #font-size: calc(var(width) * 0.3);
+        }
+    }
+
+    /* Если ширина экрана больше 30 см */
+    @media (min-width: 30cm) {
+        .content {
+            #max-width: 50%;
+            padding-left: 25%;
+            padding-right: 25%;
+            width: calc(100% - 50%);
+            #--content-width: width;
+        }
+        .subsection {
+            #font-size: calc(var(--content-width) * 0.3);
+        }
+        
+    }
+    
+    
+    
+    .subsection-image {
+        position: relative;
+        text-align: center;
+        top: 15%;
+        left: 10%;
+        width: 100%;
+        height: auto;
+    }
+    
+    .image1 {
+        position: absolute;
+        top: 10%;
+        left: 25%;
+        width: 50%;
+    }
+    
+    .image2 {
+        position: absolute;
+        top: 11.1%;
+        left: 26%;
+        width: 48%;
+        opacity: 50%;
+    }
+    
+    .subsection-image90 img {
+        max-width: 100%;
+        max-height: 50%;
+        #object-fit: cover;
+        transform: rotate(90deg);
+    }
+    
+    .subsection {
+        margin-bottom: 5%;
+        margin-top: 0%;
+        margin-left: 10%;
+        height: 100%;
+        width: 80%;
+        #font-size: 300%;
+        font-size: calc(var(--logo-width) * 0.035);
+        
+    }
+
+    .subsection header {
+        display: grid;
+        font-size: 1.5em;
+        
+        grid-template-columns: 1fr 2fr;
+    }
+    
+    .subsection header h2 {
+        #font-size: (var(--content-width) * 5.8);
+        #color: #9c0f0f;
+    }
+
+    .subsection-text {
+        text-align: center;
+        padding: 0% 5%;
+        font-size: 1em;
+    }
+
+    .subsection p {
+        #font-size: calc(var(--content-width) * 0.2);
+    }
+    
+    .video-container {
+        position: relative;
+        padding-bottom: 60%;
+        height: 0;
+        overflow: hidden;
+    }
+    
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        width: 80%;
+        height: 100%;
+    }
+    
+    .subscription {
+        position: relative;
+        width: 80%;
+        left: 10%;
+        #font-size: 2vw;
+        font-size: calc(var(--logo-width) * 0.035);
+    }
+
+    .subscription p {
+        font-size: 1em;
+        
+    }
+    
+    form {
+            display: flex;
+            flex-direction: column;
+            gap: 25%; /* Отступы между элементами формы */
+            background-color: transparent;
+            padding: 5%; /* Внутренние отступы формы */
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%; /* Адаптивная ширина формы */
+            margin-left: 0%;
+            
+    }
+
+    input[type="email"] {
+        font-size: 1em; /* Размер шрифта пропорционален основному размеру шрифта */
+        padding: 0.5em; /* Внутренние отступы поля ввода */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        font-size: 1em; /* Размер шрифта пропорционален основному размеру шрифта */
+        padding: 0.5em; /* Внутренние отступы кнопки */
+        border: none;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .success-message {
+            text-align: center;
+            display: none;
+            color: rgb(0, 0, 0);
+            font-size: 1.5em;
+            margin-top: 1em;
+            margin-bottom: 1em;
+        }
+
+    .background-container {
+        position: relative;
+        left: 25%;
+        background-color: transparent;
+        width: 50%;
+        aspect-ratio: 210 / 219;
+    }
+    
+    .simulation {
+        width: 24%;
+        height: 23%;
+        position: relative;
+    }
+    
+    .cube-image {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 168%;
+        max-width: 1000px;
+        max-height: 1000px;
+        object-fit: cover;
+    }
+    
+    .cube-image120 {
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 168%;
+        max-width: 1000px;
+        max-height: 1000px;
+        object-fit: cover;
+        transform: rotate(120deg);
+    }
+    
+    .cube-image240 {
+        top: 0%;
+        left: 0%;
+        width: 168%;
+        max-width: 1000px;
+        max-height: 1000px;
+        object-fit: cover;
+        transform: rotate(-120deg);
+    }
+    
+    .circle {
+        position: absolute;
+        border-radius: 50%;
+    }
+    
+    .sens_area {
+        background-color: transparent;
+        width: 70%;
+        height: 70%;
+    }
+    
+    .circle.shining {
+        position: absolute;
+        background-color: yellow;
+        opacity: 50%;
+        border-radius: 50%;
+        width: 164%;
+        height: 164%;
+        display: none;
+    }
+    
+    .cube-container, .border-container, .shining-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .cube1, .border1, .shining1 {
+        top: 127%;
+        left: 124%;
+    }
+    
+    .cube2, .border2, .shining2 {
+        top: 62%;
+        left: 236%;
+    }
+    
+    .cube3, .border3, .shining3 {
+        top: 12%;
+        left: 124%;
+    }
+    
+    .cube4, .border4, .shining4 {
+        top: 62%;
+        left: 12%;
+    }
+    
+    .cube5, .border5, .shining5 {
+        top: 257%;
+        left: 124%;
+    }
+    
+    .cube6, .border6, .shining6 {
+        top: 192%;
+        left: 236%;
+    }
+    
+    .cube7, .border7, .shining7 {
+        top: 127%;
+        left: 124%;
+    }
+    
+    .cube8, .border8, .shining8 {
+        top: 192%;
+        left: 12%;
+    }
+    
+    .sens_area.circle1 {
+        top: 107%;
+        left: 224%;
+    }
+    
+    .sens_area.circle1:hover {
+        cursor: none;
+        cursor: url('cursor/projection_r_d.svg') 35 27, auto;
+    }
+    
+    .sens_area.circle2 {
+        top: 37%;
+        left: 234%;
+    }
+    
+    .sens_area.circle2:hover {
+        cursor: url('cursor/projection_f_r.svg') 35 27, auto;
+    }
+    
+    .sens_area.circle3 {
+        top: 37%;
+        left: 104%;
+    }
+    
+    .sens_area.circle3:hover {
+        cursor: url('cursor/projection_r_d.svg') 35 27, auto;
+    }
+    
+    .sens_area.circle4 {
+        top: 107%;
+        left: 124%;
+    }
+    
+    .sens_area.circle4:hover {
+        cursor: url('cursor/projection_f_r.svg') 35 27, pointer;
+    }
+    
+    .sens_area.circle5 {
+        top: 169%;
+        left: 89%;
+    }
+    
+    .sens_area.circle5:hover {
+        cursor: url('cursor/projection_t_r.svg') 38 22, auto;
+    }
+    
+    .sens_area.circle6 {
+        top: 197%;
+        left: 24%;
+    }
+    
+    .sens_area.circle6:hover {
+        cursor: url('cursor/projection_r_r.svg') 10 42, auto;
+    }
+    
+    .sens_area.circle7 {
+        top: 307%;
+        left: 89%;
+    }
+    
+    .sens_area.circle7:hover {
+        cursor: url('cursor/projection_t_r.svg') 38 22, auto;
+    }
+    
+    .sens_area.circle8 {
+        top: 257%;
+        left: 139%;
+    }
+    
+    .sens_area.circle8:hover {
+        cursor: url('cursor/projection_r_r.svg') 10 42, auto;
+    }
+    
+    .sens_area.circle9 {
+        top: 169%;
+        left: 259%;
+    }
+    
+    .sens_area.circle9:hover {
+        cursor: url('cursor/projection_t_d.svg') 38 22, auto;
+    }
+    
+    .sens_area.circle10 {
+        top: 257%;
+        left: 209%;
+    }
+    
+    .sens_area.circle10:hover {
+        cursor: url('cursor/projection_f_d.svg') 10 42, auto;
+    }
+    
+    .sens_area.circle11 {
+        top: 307%;
+        left: 259%;
+    }
+    
+    .sens_area.circle11:hover {
+        cursor: url('cursor/projection_t_d.svg') 38 22, auto;
+    }
+    
+    .sens_area.circle12 {
+        top: 197%;
+        left: 324%;
+    }
+    
+    .sens_area.circle12:hover {
+        cursor: url('cursor/projection_f_d.svg') 10 42, auto;
+    }
+    
+    .logo {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+
+
+    </style>
+</head>
+<body>
+    <!-- Content Container -->
+    <div class="content">
+        <div class="header" id="header">
+            <img class="logo" src="logo_imgs/logo2.png" alt="GOLOVOLO">
+        </div>
+        <div class="background-container">
+            <div class="cursor"></div>
+            <div class="simulation" id="simulation">
+                <!-- Cube 7 -->
+                <div class="shining-container shining7">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 7 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube7">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 7 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 7 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 7 Image">
+                    </div>
+                </div>
+                <div class="border-container border7">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 7 Image">
+                    </div>
+                </div>
+                <!-- Cube 6 -->
+                <div class="shining-container shining6">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 6 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube6">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 6 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 6 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 6 Image">
+                    </div>
+                </div>
+                <div class="border-container border6">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 6 Image">
+                    </div>
+                </div>
+                <!-- Cube 8 -->
+                <div class="shining-container shining8">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 8 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube8">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 8 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 8 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 8 Image">
+                    </div>
+                </div>
+                <div class="border-container border8">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 8 Image">
+                    </div>
+                </div>
+                <!-- Cube 3 -->
+                <div class="shining-container shining3">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 3 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube3">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 3 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 3 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 3 Image">
+                    </div>
+                </div>
+                <div class="border-container border3">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 3 Image">
+                    </div>
+                </div>
+                <!-- Cube 4 -->
+                <div class="shining-container shining4">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 4 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube4">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 4 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 4 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 4 Image">
+                    </div>
+                </div>
+                <div class="border-container border4">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 4 Image">
+                    </div>
+                </div>
+                <!-- Cube 2 -->
+                <div class="shining-container shining2">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 2 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube2">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 2 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 2 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 2 Image">
+                    </div>
+                </div>
+                <div class="border-container border2">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 2 Image">
+                    </div>
+                </div>
+                <!-- Cube 5 -->
+                <div class="shining-container shining5">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 5 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube5">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 5 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 5 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 5 Image">
+                    </div>
+                </div>
+                <div class="border-container border5">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 5 Image">
+                    </div>
+                </div>
+                <!-- Cube 1 -->
+                <div class="shining-container shining1">
+                    <div>
+                        <img class="cube-image" src="imgs_render/shining.png" alt="Cube 1 Image">
+                    </div>
+                </div>
+                <div class="cube-container cube1">
+                    <div>
+                        <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 1 Image">
+                        <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 1 Image">
+                        <img class="cube-image240" src="imgs_render/front/right_top/0127.png" alt="Cube 1 Image">
+                    </div>
+                </div>
+                <div class="border-container border1">
+                    <div>
+                        <img class="cube-image" src="imgs_render/border.png" alt="Cube 1 Image">
+                    </div>
+                </div>
+                <!-- Sensory Areas -->
+                <div class="circle sens_area circle1"></div>
+                <div class="circle sens_area circle2"></div>
+                <div class="circle sens_area circle3"></div>
+                <div class="circle sens_area circle4"></div>
+                <div class="circle sens_area circle5"></div>
+                <div class="circle sens_area circle6"></div>
+                <div class="circle sens_area circle7"></div>
+                <div class="circle sens_area circle8"></div>
+                <div class="circle sens_area circle9"></div>
+                <div class="circle sens_area circle10"></div>
+                <div class="circle sens_area circle11"></div>
+                <div class="circle sens_area circle12"></div>
+            </div>
+        </div>
+        <div class="subsection" id="satisfying">
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0700.png" alt="Cube Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Cube Border">
+                    
+                </div>
+                <h2>Satisfying object</h2>
+
+            </header>
+            <div class="subsection-text">
+                
+                
+                <p>
+                    As a puzzle, Golovolo offers a bit more than most others, providing satisfaction with each touch regardless of how close you are to solving it
+                </p>
+            </div>
+            
+            
+        </div>
+        <div class="subsection" id="colorlessness">
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0709.png" alt="Original Design Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Original Design Border">
+                    
+                </div>
+                <h2>Original design</h2>
+
+            </header>
+            <div class="subsection-text">
+                <p>
+                    Golovolo avoids familiar color schemes, 
+                    striving not to blend into the vast sea of assembly puzzles
+                </p>
+            </div>
+        </div>
+        <div class="subsection" id="structure">
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0718.png" alt="Hidden Complexity Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Hidden Complexity Border">
+                    
+                </div>
+                <h2>Hidden complexity</h2>
+
+            </header>
+            <div class="subsection-text">
+                <p>
+                    Despite looking simple, Golovolo has a complex 
+                    internal structure that includes about 300 magnets
+                </p>
+            </div>
+        </div>
+        <div class="subsection" id="extraparts">
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0727.png" alt="Avoiding Extra Parts Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Avoiding Extra Parts Border">
+                    
+                </div>
+                <h2>Avoiding <br> extra parts</h2>
+
+            </header>
+            <div class="subsection-text">
+                <p>
+                    Golovolo consists of only 8 spheres without any shell. 
+                    You can overcome the magnetic forces in extreme cases,
+                    but there is plenty of fun in following the rules        
+                </p>
+            </div>
+        </div>
+        <div class="subsection" id="solving">
+            
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0736.png" alt="Hard to Solve Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Hard to Solve Border">
+                    
+                </div>
+                <h2>Hard to <br> solve</h2>
+
+            </header>
+            <div class="subsection-text">
+                <p>
+                    Golovolo has more than 7 billion unique states, making it non-trivial. 
+                    However, it is still possible to solve even if you are not a PhD in group theory                </p>
+            </div>
+        </div>
+        <div class="subsection" id="potential">
+            <header>
+                <div class="subsection-image">
+                    <img class="image1" src="imgs_render/sequence/0745.png" alt="Unlimited Potential Image">
+                    <img class="image2" src="imgs_render/border.png" alt="Unlimited Potential Border">
+                </div>
+                <h2>Unlimited potential</h2>
+
+            </header>
+            <div class="subsection-text">
+                <p>
+                    Anyone who finds Golovolo 
+                    simple despite the point above can 
+                    stack a few of them to make a bigger one
+                </p>
+            </div>
+            
+        </div>
+        <div class="video-container" id="video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YdmL1hUmw6Q?si=bS9jTHn74L2yb4oV" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="subscription" id="sub_form">
+            <h2>Subscribe for Golovolo</h2>
+            <div class="email-form" id="email">
+                <p>
+                    Golovolo is currently under development and not yet ready for mass production. 
+                    However, you can stay in touch with us by leaving your email, 
+                    and we will inform you about any updates
+                </p>
+                <form id="subscribe-form">
+                    <input type="email" name="entry.331321320" placeholder="Enter your email" required>
+                    <input type="submit" value="Subscribe">
+                </form>
+                
+                <div class="success-message">Thank you for subscribing!</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', "https://docs.google.com/forms/d/e/1FAIpQLSc7YK1bl0Z9dPOTk1I4RhqJvNoVVAAZmVfNRT8ICMjPf69-Rw/formResponse", true);
+            xhr.send(data);
+            event.preventDefault();
+            
+            // Симулируем успешную отправку, если нужно
+            form.style.display = 'none';
+            document.querySelector('.success-message').style.display = 'block';
+            
+            // Очистите форму после отправки
+            // event.target.reset();
+        });
+
+        function checkOrientation() {
+            if (window.innerWidth < 768 && window.innerHeight < window.innerWidth) {
+                // Landscape orientation on mobile
+                document.getElementById('container').classList.add('landscape');
+            } else {
+                // Portrait orientation on mobile or larger screens
+                document.getElementById('container').classList.remove('landscape');
+            }
+        }
+        function detectDevice() {
+            const width = window.innerWidth;
+            const deviceTypeElement = document.getElementById('deviceType');
+            /*
+            if (width <= 1268) {
+                document.body.classList.add('hide-background');
+                //document.body.classList.remove()
+            } else {
+                //deviceTypeElement.textContent = "Desktop Browser";
+                document.body.classList.remove('hide-background');
+            }
+            */
+        }
+
+        //window.onload = detectDevice;
+        //window.onresize = detectDevice;
+        function updateLogoWidth() {
+            const logo = document.querySelector('.logo');
+            const width = logo.clientWidth;
+            document.documentElement.style.setProperty('--logo-width', `${width}px`);
+            console.log(width.toString());
+        }
+
+        window.addEventListener('resize', updateLogoWidth);
+        window.addEventListener('load', updateLogoWidth);
+
+        function setBackgroundHeight() {
+            const bodyHeight = document.body.scrollHeight;
+            document.documentElement.style.setProperty('--body-height', `${bodyHeight}px`);
+        }
+
+        window.addEventListener('load', setBackgroundHeight);
+        window.addEventListener('resize', setBackgroundHeight);
+        window.addEventListener('scroll', setBackgroundHeight);
+        window.addEventListener('load', detectDevice);
+        window.addEventListener('resize', detectDevice);
+        window.addEventListener('scroll', detectDevice);
+        ids = ["header",
+                //"simulation",
+                "satisfying",
+                "colorlessness",
+                "structure",
+                "extraparts",
+                "solving",
+                "potential",
+                "video",
+                "email"
+                ]
+        var id_top = 0;
+
+
+        let prev_num = 0;
+
+        window.addEventListener('scroll', function() {
+            
+            var scroll_pos = window.scrollY;
+            const num = get_image_num_from_pos(scroll_pos);
+            change_imgs(prev_num, num);
+            prev_num = num;
+
+            
+        });
+        const start_nums = [0, 9, 18, 27, 36, 45];
+        function change_imgs(prev_num, num) {
+            if (num == prev_num) {
+                return
+            }
+            var prev_subsec_num = 0;
+            var subsec_num = 0;
+            for (let i = 1; i < start_nums.length; i++) {
+                if (prev_num < start_nums[i]) {
+                    break;
+                }
+                prev_subsec_num = i;
+            }
+            for (let i = 1; i < start_nums.length; i++) {
+                if (num < start_nums[i]) {
+                    break;
+                }
+                subsec_num = i;
+            }
+            if (prev_subsec_num == subsec_num) {
+                let img = subsections[subsec_num].querySelector('img');
+                img.src = seq_names_sphere[num];                
+            }
+            else {
+                let img = subsections[subsec_num].querySelector('img');
+                img.src = seq_names_sphere[num];
+                if (num > prev_num) {
+                    let prev_img = subsections[prev_subsec_num].querySelector('img');
+                    prev_img.src = seq_names_sphere[start_nums[subsec_num]];
+                }
+                else {
+                    let prev_img = subsections[prev_subsec_num].querySelector('img');
+                    prev_img.src = seq_names_sphere[start_nums[prev_subsec_num]];
+                }
+            }
+        }
+        function change_illustrations(subsec_num, start_n, end_n) {
+            let intervalId = null;
+            r1 = rotates[0]
+            r2 = rotates[1]
+            r3 = rotates[2]
+            r4 = rotates[3]
+            function rotation_step() {
+                let res = 0
+                res += r1()
+                res += r2()
+                res += r3()
+                res += r4()
+                if (res != 4) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }
+            intervalId = setInterval(rotation_step, 50)
+        }
+        var subsections = document.querySelectorAll('.subsection-image');
+        function get_image_num_from_pos(scroll_pos) {
+            const window_height = window.innerHeight;
+            const mid_height = window_height/2;
+            const subsec_height = 230 //subsections[0].getBoundingClientRect().height;
+            const subsec_top = subsections[0].getBoundingClientRect().top + scroll_pos;
+            const diff = scroll_pos + mid_height - subsec_top;
+            const diff_max = subsec_height*subsections.length;
+            const num = Math.floor(diff * seq_names_sphere.length / diff_max)
+            console.log(scroll_pos.toString() +" " +diff.toString() +" "+ num.toString());
+            if (diff < 0) {return 0;}
+            if (diff >= diff_max) {
+                return seq_names_sphere.length - 1;
+            }
+            
+            return num;
+
+        }
+        /*
+        window.addEventListener('scroll', function() {
+            var scrollTop = window.scrollY;
+            sk += 1
+            sk = sk%seq_names_sphere.length
+            var subsections = document.querySelectorAll('.subsection-image');
+            let subsec_num = get_mid_subsection(scrollTop)
+            console.log(scrollTop);
+
+            //let img = document.querySelectorAll('.subsection-image');
+
+            if (subsec_num >= 1 && subsec_num <= subsections.length) {
+                sk += 1
+
+                if (sk >= 1800) {
+                    sk = 9
+                }
+                var visibleSubsection = subsections[subsec_num - 1];
+                let img = visibleSubsection.querySelector('img');
+                img.src = seq_names_sphere[sk];
+
+            }
+        });
+        */
+        function get_visible_subsection(scroll_pos) {
+            for (let i = 0; i < scroll_borders.length; i++) {
+                if (scroll_pos < scroll_borders[i]) {
+                    return i;
+                }
+            }
+            return 1000;
+        }
+
+        function get_mid_subsection(scroll_pos) {
+            for (let i = 0; i < scroll_borders.length; i++) {
+                if (scroll_pos < scroll_borders[i]) {
+                    return i;
+                }
+            }
+            return 1000;
+        }
+
+        const seq_names_sphere = [
+                            "imgs_render/sequence/0700.png",
+                            "imgs_render/sequence/0701.png",
+                            "imgs_render/sequence/0702.png",
+                            "imgs_render/sequence/0703.png",
+                            "imgs_render/sequence/0704.png",
+                            "imgs_render/sequence/0705.png",
+                            "imgs_render/sequence/0706.png",
+                            "imgs_render/sequence/0707.png",
+                            "imgs_render/sequence/0708.png",
+                            "imgs_render/sequence/0709.png",
+                            "imgs_render/sequence/0710.png",
+                            "imgs_render/sequence/0711.png",
+                            "imgs_render/sequence/0712.png",
+                            "imgs_render/sequence/0713.png",
+                            "imgs_render/sequence/0714.png",
+                            "imgs_render/sequence/0715.png",
+                            "imgs_render/sequence/0716.png",
+                            "imgs_render/sequence/0717.png",
+                            "imgs_render/sequence/0718.png",
+                            "imgs_render/sequence/0719.png",
+                            "imgs_render/sequence/0720.png",
+                            "imgs_render/sequence/0721.png",
+                            "imgs_render/sequence/0722.png",
+                            "imgs_render/sequence/0723.png",
+                            "imgs_render/sequence/0724.png",
+                            "imgs_render/sequence/0725.png",
+                            "imgs_render/sequence/0726.png",
+                            "imgs_render/sequence/0727.png",
+                            "imgs_render/sequence/0728.png",
+                            "imgs_render/sequence/0729.png",
+                            "imgs_render/sequence/0730.png",
+                            "imgs_render/sequence/0731.png",
+                            "imgs_render/sequence/0732.png",
+                            "imgs_render/sequence/0733.png",
+                            "imgs_render/sequence/0734.png",
+                            "imgs_render/sequence/0735.png",
+                            "imgs_render/sequence/0736.png",
+                            "imgs_render/sequence/0737.png",
+                            "imgs_render/sequence/0738.png",
+                            "imgs_render/sequence/0739.png",
+                            "imgs_render/sequence/0740.png",
+                            "imgs_render/sequence/0741.png",
+                            "imgs_render/sequence/0742.png",
+                            "imgs_render/sequence/0743.png",
+                            "imgs_render/sequence/0744.png",
+                            "imgs_render/sequence/0745.png",
+                            "imgs_render/sequence/0746.png",
+                            "imgs_render/sequence/0747.png",
+                            "imgs_render/sequence/0748.png",
+                            "imgs_render/sequence/0749.png",
+                            "imgs_render/sequence/0750.png",
+                            "imgs_render/sequence/0751.png",
+                            "imgs_render/sequence/0752.png",
+                            "imgs_render/sequence/0753.png",
+                            "imgs_render/sequence/0754.png"                           
+                            
+                           ]
+        const scroll_borders = [200,
+                                400,
+                                600,
+                                800,
+                                1000,
+                                1200,
+                                1400]
+
+        const subsection_images = document.querySelectorAll('.subsection-image');
+
+        const SPHERE = {
+                    1: {
+                        2: 3,
+                        3: 5,
+                        5: 4,
+                        4: 2
+                    },
+                    2: {
+                        1: 4,
+                        4: 6,
+                        6: 3,
+                        3: 1
+                    },
+                    3: {
+                        1: 2,
+                        2: 6,
+                        6: 5,
+                        5: 1
+                    },
+                    4: {
+                        1: 5,
+                        5: 6,
+                        6: 2,
+                        2: 1
+                    },
+                    5: {
+                        1: 3,
+                        3: 6,
+                        6: 4,
+                        4: 1
+                    },
+                    6: {
+                        2: 4,
+                        4: 5,
+                        5: 3,
+                        3: 2
+                    }
+                }
+        const background_container = document.querySelector('.background-container');
+        const cubeContainers = document.querySelectorAll('.cube-container');
+        const sphere_indices = {1: 7, 2: 5, 3: 3, 4: 4, 5: 6, 6: 1, 7: 0, 8: 2}
+        const circles = document.querySelectorAll('.sens_area');
+        const shinings = document.querySelectorAll('.shining-container')
+
+        const cursor = document.querySelector('.cursor');
+        cursor.style.display = "none";
+        /*
+        const setCursorLocation = e => {
+        let cursorLocation = `top: ${e.pageY - background_container.offsetTop - 25}px; left: ${e.pageX - background_container.offsetLeft - 25}px;`;
+            cursor.setAttribute("style", cursorLocation);
+        }
+        circles.forEach( item => {
+
+            item.addEventListener("mouseover", () => {
+            cursor.classList.add("focus");
+            });
+
+            item.addEventListener("mouseleave", () => {
+            cursor.classList.remove("focus");
+            });
+
+        });
+        background_container.addEventListener("mousemove", setCursorLocation);
+        background_container.addEventListener("mouseout", () => {
+            cursor.style.display = "none";
+        });
+
+        background_container.addEventListener("mouseenter", () => {
+            cursor.style.display = "block";
+        });
+        */
+        const imageNames = {1:  {3: [5, [
+                                            "imgs_render/top/front_right/0000.png",
+                                            "imgs_render/top/front_right/0001.png",
+                                            "imgs_render/top/front_right/0002.png",
+                                            "imgs_render/top/front_right/0003.png",
+                                            "imgs_render/top/front_right/0004.png",
+                                            "imgs_render/top/front_right/0005.png",
+                                            "imgs_render/top/front_right/0006.png",
+                                            "imgs_render/top/front_right/0007.png",
+                                            "imgs_render/top/front_right/0008.png",
+                                            "imgs_render/top/front_right/0009.png"]],
+                                 5: [4, [
+                                            "imgs_render/top/right_back/0009.png",
+                                            "imgs_render/top/right_back/0010.png",
+                                            "imgs_render/top/right_back/0011.png",
+                                            "imgs_render/top/right_back/0012.png",
+                                            "imgs_render/top/right_back/0013.png",
+                                            "imgs_render/top/right_back/0014.png",
+                                            "imgs_render/top/right_back/0015.png",
+                                            "imgs_render/top/right_back/0016.png",
+                                            "imgs_render/top/right_back/0017.png",
+                                            "imgs_render/top/right_back/0018.png"]],
+                                 4: [2, [
+                                            "imgs_render/top/back_left/0018.png",
+                                            "imgs_render/top/back_left/0019.png",
+                                            "imgs_render/top/back_left/0020.png",
+                                            "imgs_render/top/back_left/0021.png",
+                                            "imgs_render/top/back_left/0022.png",
+                                            "imgs_render/top/back_left/0023.png",
+                                            "imgs_render/top/back_left/0024.png",
+                                            "imgs_render/top/back_left/0025.png",
+                                            "imgs_render/top/back_left/0026.png",
+                                            "imgs_render/top/back_left/0027.png"]],
+                                 2: [3, [
+                                            "imgs_render/top/left_front/0027.png",
+                                            "imgs_render/top/left_front/0028.png",
+                                            "imgs_render/top/left_front/0029.png",
+                                            "imgs_render/top/left_front/0030.png",
+                                            "imgs_render/top/left_front/0031.png",
+                                            "imgs_render/top/left_front/0032.png",
+                                            "imgs_render/top/left_front/0033.png",
+                                            "imgs_render/top/left_front/0034.png",
+                                            "imgs_render/top/left_front/0035.png",
+                                            "imgs_render/top/left_front/0036.png"]]},
+                            3:  {1: [2, [
+                                            "imgs_render/front/top_left/0100.png",
+                                            "imgs_render/front/top_left/0101.png",
+                                            "imgs_render/front/top_left/0102.png",
+                                            "imgs_render/front/top_left/0103.png",
+                                            "imgs_render/front/top_left/0104.png",
+                                            "imgs_render/front/top_left/0105.png",
+                                            "imgs_render/front/top_left/0106.png",
+                                            "imgs_render/front/top_left/0107.png",
+                                            "imgs_render/front/top_left/0108.png",
+                                            "imgs_render/front/top_left/0109.png"]],
+                                 2: [6, [
+                                            "imgs_render/front/left_bottom/0109.png",
+                                            "imgs_render/front/left_bottom/0110.png",
+                                            "imgs_render/front/left_bottom/0111.png",
+                                            "imgs_render/front/left_bottom/0112.png",
+                                            "imgs_render/front/left_bottom/0113.png",
+                                            "imgs_render/front/left_bottom/0114.png",
+                                            "imgs_render/front/left_bottom/0115.png",
+                                            "imgs_render/front/left_bottom/0116.png",
+                                            "imgs_render/front/left_bottom/0117.png",
+                                            "imgs_render/front/left_bottom/0118.png"]],
+                                 6: [5, [
+                                            "imgs_render/front/bottom_right/0118.png",
+                                            "imgs_render/front/bottom_right/0119.png",
+                                            "imgs_render/front/bottom_right/0120.png",
+                                            "imgs_render/front/bottom_right/0121.png",
+                                            "imgs_render/front/bottom_right/0122.png",
+                                            "imgs_render/front/bottom_right/0123.png",
+                                            "imgs_render/front/bottom_right/0124.png",
+                                            "imgs_render/front/bottom_right/0125.png",
+                                            "imgs_render/front/bottom_right/0126.png",
+                                            "imgs_render/front/bottom_right/0127.png"]],
+                                 5: [1, [
+                                            "imgs_render/front/right_top/0127.png",
+                                            "imgs_render/front/right_top/0128.png",
+                                            "imgs_render/front/right_top/0129.png",
+                                            "imgs_render/front/right_top/0130.png",
+                                            "imgs_render/front/right_top/0131.png",
+                                            "imgs_render/front/right_top/0132.png",
+                                            "imgs_render/front/right_top/0133.png",
+                                            "imgs_render/front/right_top/0134.png",
+                                            "imgs_render/front/right_top/0135.png",
+                                            "imgs_render/front/right_top/0136.png"]]},
+                            5:  {1: [3, [
+                                            "imgs_render/right/top_front/0200.png",
+                                            "imgs_render/right/top_front/0201.png",
+                                            "imgs_render/right/top_front/0202.png",
+                                            "imgs_render/right/top_front/0203.png",
+                                            "imgs_render/right/top_front/0204.png",
+                                            "imgs_render/right/top_front/0205.png",
+                                            "imgs_render/right/top_front/0206.png",
+                                            "imgs_render/right/top_front/0207.png",
+                                            "imgs_render/right/top_front/0208.png",
+                                            "imgs_render/right/top_front/0209.png"]],
+                                3: [6, [
+                                            "imgs_render/right/front_bottom/0209.png",
+                                            "imgs_render/right/front_bottom/0210.png",
+                                            "imgs_render/right/front_bottom/0211.png",
+                                            "imgs_render/right/front_bottom/0212.png",
+                                            "imgs_render/right/front_bottom/0213.png",
+                                            "imgs_render/right/front_bottom/0214.png",
+                                            "imgs_render/right/front_bottom/0215.png",
+                                            "imgs_render/right/front_bottom/0216.png",
+                                            "imgs_render/right/front_bottom/0217.png",
+                                            "imgs_render/right/front_bottom/0218.png"]],
+                                6: [4, [
+                                            "imgs_render/right/bottom_back/0218.png",
+                                            "imgs_render/right/bottom_back/0219.png",
+                                            "imgs_render/right/bottom_back/0220.png",
+                                            "imgs_render/right/bottom_back/0221.png",
+                                            "imgs_render/right/bottom_back/0222.png",
+                                            "imgs_render/right/bottom_back/0223.png",
+                                            "imgs_render/right/bottom_back/0224.png",
+                                            "imgs_render/right/bottom_back/0225.png",
+                                            "imgs_render/right/bottom_back/0226.png",
+                                            "imgs_render/right/bottom_back/0227.png"]],
+                                4: [1, [
+                                            "imgs_render/right/back_top/0227.png",
+                                            "imgs_render/right/back_top/0228.png",
+                                            "imgs_render/right/back_top/0229.png",
+                                            "imgs_render/right/back_top/0230.png",
+                                            "imgs_render/right/back_top/0231.png",
+                                            "imgs_render/right/back_top/0232.png",
+                                            "imgs_render/right/back_top/0233.png",
+                                            "imgs_render/right/back_top/0234.png",
+                                            "imgs_render/right/back_top/0235.png",
+                                            "imgs_render/right/back_top/0236.png"]]},
+                            4:  {1: [5, [
+                                            "imgs_render/back/top_right/0300.png",
+                                            "imgs_render/back/top_right/0301.png",
+                                            "imgs_render/back/top_right/0302.png",
+                                            "imgs_render/back/top_right/0303.png",
+                                            "imgs_render/back/top_right/0304.png",
+                                            "imgs_render/back/top_right/0305.png",
+                                            "imgs_render/back/top_right/0306.png",
+                                            "imgs_render/back/top_right/0307.png",
+                                            "imgs_render/back/top_right/0308.png",
+                                            "imgs_render/back/top_right/0309.png"]],
+                                5: [6, [
+                                            "imgs_render/back/right_bottom/0309.png",
+                                            "imgs_render/back/right_bottom/0310.png",
+                                            "imgs_render/back/right_bottom/0311.png",
+                                            "imgs_render/back/right_bottom/0312.png",
+                                            "imgs_render/back/right_bottom/0313.png",
+                                            "imgs_render/back/right_bottom/0314.png",
+                                            "imgs_render/back/right_bottom/0315.png",
+                                            "imgs_render/back/right_bottom/0316.png",
+                                            "imgs_render/back/right_bottom/0317.png",
+                                            "imgs_render/back/right_bottom/0318.png"]],
+                                6: [2, [
+                                            "imgs_render/back/bottom_left/0318.png",
+                                            "imgs_render/back/bottom_left/0319.png",
+                                            "imgs_render/back/bottom_left/0320.png",
+                                            "imgs_render/back/bottom_left/0321.png",
+                                            "imgs_render/back/bottom_left/0322.png",
+                                            "imgs_render/back/bottom_left/0323.png",
+                                            "imgs_render/back/bottom_left/0324.png",
+                                            "imgs_render/back/bottom_left/0325.png",
+                                            "imgs_render/back/bottom_left/0326.png",
+                                            "imgs_render/back/bottom_left/0327.png"]],
+                                2: [1, [
+                                            "imgs_render/back/left_top/0327.png",
+                                            "imgs_render/back/left_top/0328.png",
+                                            "imgs_render/back/left_top/0329.png",
+                                            "imgs_render/back/left_top/0330.png",
+                                            "imgs_render/back/left_top/0331.png",
+                                            "imgs_render/back/left_top/0332.png",
+                                            "imgs_render/back/left_top/0333.png",
+                                            "imgs_render/back/left_top/0334.png",
+                                            "imgs_render/back/left_top/0335.png",
+                                            "imgs_render/back/left_top/0336.png"]]},
+                            2:  {1: [4, [
+                                            "imgs_render/left/top_back/0400.png",
+                                            "imgs_render/left/top_back/0401.png",
+                                            "imgs_render/left/top_back/0402.png",
+                                            "imgs_render/left/top_back/0403.png",
+                                            "imgs_render/left/top_back/0404.png",
+                                            "imgs_render/left/top_back/0405.png",
+                                            "imgs_render/left/top_back/0406.png",
+                                            "imgs_render/left/top_back/0407.png",
+                                            "imgs_render/left/top_back/0408.png",
+                                            "imgs_render/left/top_back/0409.png"]],
+                                4: [6, [
+                                            "imgs_render/left/back_bottom/0409.png",
+                                            "imgs_render/left/back_bottom/0410.png",
+                                            "imgs_render/left/back_bottom/0411.png",
+                                            "imgs_render/left/back_bottom/0412.png",
+                                            "imgs_render/left/back_bottom/0413.png",
+                                            "imgs_render/left/back_bottom/0414.png",
+                                            "imgs_render/left/back_bottom/0415.png",
+                                            "imgs_render/left/back_bottom/0416.png",
+                                            "imgs_render/left/back_bottom/0417.png",
+                                            "imgs_render/left/back_bottom/0418.png"]],
+                                6: [3, [
+                                            "imgs_render/left/bottom_front/0418.png",
+                                            "imgs_render/left/bottom_front/0419.png",
+                                            "imgs_render/left/bottom_front/0420.png",
+                                            "imgs_render/left/bottom_front/0421.png",
+                                            "imgs_render/left/bottom_front/0422.png",
+                                            "imgs_render/left/bottom_front/0423.png",
+                                            "imgs_render/left/bottom_front/0424.png",
+                                            "imgs_render/left/bottom_front/0425.png",
+                                            "imgs_render/left/bottom_front/0426.png",
+                                            "imgs_render/left/bottom_front/0427.png"]],
+                                3: [1, [
+                                            "imgs_render/left/front_top/0427.png",
+                                            "imgs_render/left/front_top/0428.png",
+                                            "imgs_render/left/front_top/0429.png",
+                                            "imgs_render/left/front_top/0430.png",
+                                            "imgs_render/left/front_top/0431.png",
+                                            "imgs_render/left/front_top/0432.png",
+                                            "imgs_render/left/front_top/0433.png",
+                                            "imgs_render/left/front_top/0434.png",
+                                            "imgs_render/left/front_top/0435.png",
+                                            "imgs_render/left/front_top/0436.png"]]},
+                            6:  {3: [2, [
+                                            "imgs_render/bottom/front_left/0500.png",
+                                            "imgs_render/bottom/front_left/0501.png",
+                                            "imgs_render/bottom/front_left/0502.png",
+                                            "imgs_render/bottom/front_left/0503.png",
+                                            "imgs_render/bottom/front_left/0504.png",
+                                            "imgs_render/bottom/front_left/0505.png",
+                                            "imgs_render/bottom/front_left/0506.png",
+                                            "imgs_render/bottom/front_left/0507.png",
+                                            "imgs_render/bottom/front_left/0508.png",
+                                            "imgs_render/bottom/front_left/0509.png"]],
+                                2: [4, [
+                                            "imgs_render/bottom/left_back/0509.png",
+                                            "imgs_render/bottom/left_back/0510.png",
+                                            "imgs_render/bottom/left_back/0511.png",
+                                            "imgs_render/bottom/left_back/0512.png",
+                                            "imgs_render/bottom/left_back/0513.png",
+                                            "imgs_render/bottom/left_back/0514.png",
+                                            "imgs_render/bottom/left_back/0515.png",
+                                            "imgs_render/bottom/left_back/0516.png",
+                                            "imgs_render/bottom/left_back/0517.png",
+                                            "imgs_render/bottom/left_back/0518.png"]],
+                                4: [5, [
+                                            "imgs_render/bottom/back_right/0518.png",
+                                            "imgs_render/bottom/back_right/0519.png",
+                                            "imgs_render/bottom/back_right/0520.png",
+                                            "imgs_render/bottom/back_right/0521.png",
+                                            "imgs_render/bottom/back_right/0522.png",
+                                            "imgs_render/bottom/back_right/0523.png",
+                                            "imgs_render/bottom/back_right/0524.png",
+                                            "imgs_render/bottom/back_right/0525.png",
+                                            "imgs_render/bottom/back_right/0526.png",
+                                            "imgs_render/bottom/back_right/0527.png"]],
+                                5: [3, [
+                                            "imgs_render/bottom/right_front/0527.png",
+                                            "imgs_render/bottom/right_front/0528.png",
+                                            "imgs_render/bottom/right_front/0529.png",
+                                            "imgs_render/bottom/right_front/0530.png",
+                                            "imgs_render/bottom/right_front/0531.png",
+                                            "imgs_render/bottom/right_front/0532.png",
+                                            "imgs_render/bottom/right_front/0533.png",
+                                            "imgs_render/bottom/right_front/0534.png",
+                                            "imgs_render/bottom/right_front/0535.png",
+                                            "imgs_render/bottom/right_front/0536.png"]]}
+
+            };
+
+        states = [
+            [1, 3],
+            [1, 3],
+            [1, 3],
+            [1, 3],
+            [1, 3],
+            [1, 3],
+            [1, 3],
+            [1, 3]
+        ];
+        function rotate_sphere(state_sphere, direction) {
+            //t = state_sphere[0]
+            //f = state_sphere[1]
+            let nf = SPHERE[state_sphere[0]][state_sphere[1]]
+            if (direction == -1) {
+                nf = 7 - nf
+            }
+            return nf
+        }
+
+
+        function turn_sphere(sphere_index, axis, direction) {
+            let t = states[sphere_index - 1][0]
+            let f = states[sphere_index - 1][1]
+            let nf;
+            let nt;
+            if (axis == 'BT') {
+                nf = rotate_sphere([t, f], direction)
+                nt = t
+            }
+            if (axis == 'BF') {
+                nt = rotate_sphere([f, t], direction)
+                nf = f
+            }
+            if (axis == 'LR') {
+                nt = rotate_sphere([SPHERE[t][f], t], direction)
+                if (direction == 1) {
+                    nf = 7 - t
+                } else {
+                    nf = t
+                }
+            }
+            states[sphere_index - 1] = [nt, nf]
+            return show_turn(sphere_index, axis, t, f, nt, nf)
+        }
+
+        function show_images(cube_container, axis, seq_names, order, nt, nf) {
+            let currentImageIndex;
+            let rotated_img;
+            let nr = SPHERE[nt][nf];
+            //console.log(nr);
+            const cube_img = cube_container.querySelector('.cube-image');
+            const cube_img120 = cube_container.querySelector('.cube-image120');
+            const cube_img240 = cube_container.querySelector('.cube-image240');
+            if (order == 1) {
+                currentImageIndex = 0
+            } else {
+                currentImageIndex = seq_names.length - 1
+            }
+            //const rotated_img = new Image();
+            //rotated_img = cube_img
+            //rotated_img.classList.add('cube-image');
+            //rotated_img.src = seq_names[currentImageIndex];
+            //let rotationInterval = null;
+            if (axis == 'BT') {
+                //rotated_img.style.transform = `rotate(${0}deg)`
+                rotated_img = cube_img
+                rotated_img.style.opacity = "1.0"
+                cube_img120.style.opacity = "0.0"
+                cube_img240.style.opacity = "0.0"
+                //setTimeout(() => {}, 10)
+                //cube_img120.src = imageNames[nr][nt][1][0];
+                //cube_img240.src = imageNames[nf][nr][1][0];
+            }
+            if (axis == 'LR') {
+                //rotated_img.style.transform = `rotate(${120}deg)`
+                rotated_img = cube_img120
+                rotated_img.style.opacity = "1.0"
+                cube_img.style.opacity = "0.0"
+                cube_img240.style.opacity = "0.0"
+                //setTimeout(() => {}, 10)
+                //cube_img.src = imageNames[nt][nf][1][0];
+                //cube_img240.src = imageNames[nf][nr][1][0];
+            }
+            if (axis == 'BF') {
+                //rotated_img.style.transform = `rotate(${-120}deg)`;
+                rotated_img = cube_img240
+                rotated_img.style.opacity = "1.0"
+                cube_img120.style.opacity = "0.0"
+                //setTimeout(() => {}, 10)
+                cube_img.style.opacity = "0.0"
+                //cube_img120.src = imageNames[nr][nt][1][0];
+                //cube_img.src = imageNames[nt][nf][1][0];
+            }
+
+            //setTimeout(() => {
+                //cube_img.parentNode.replaceChild(rotated_img, cube_img);
+            //}, 50);
+
+
+
+
+            function rotateImages() {
+                const imageName = seq_names[currentImageIndex];
+                rotated_img.src = imageName;
+                currentImageIndex += order;
+
+                // Check if we've reached the last image
+                if (currentImageIndex >= seq_names.length || currentImageIndex <= -1) {
+                    //clearInterval(rotationInterval);
+                    //rotationInterval = null;
+                    //currentImageIndex = 0;
+                    currentImageIndex -= order;
+                    cube_img.src = imageNames[nt][nf][1][0];
+                    cube_img120.src = imageNames[nr][nt][1][0];
+                    cube_img240.src = imageNames[nf][nr][1][0];
+                    return 0
+                }
+                return 1
+            }
+            //rotationInterval = setInterval(rotateImages, 50);
+            return rotateImages;
+
+        }
+
+        function show_turn(sphere_index, axis, t, f, nt, nf) {
+            const cubeContainer = cubeContainers[sphere_indices[sphere_index]];
+
+            if (axis == 'BT') {
+                if (imageNames[t][f][0] == nf) {
+                    return show_images(cubeContainer, axis, imageNames[t][f][1], 1, nt, nf)
+                } else {
+                    return show_images(cubeContainer, axis, imageNames[t][nf][1], -1, nt, nf)
+                }
+            }
+            if (axis == 'LR') {
+                if (imageNames[SPHERE[t][f]][t][0] == nt) {
+                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][t][1], 1, nt, nf)
+                } else {
+                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][nt][1], -1, nt, nf)
+                }
+            }
+            if (axis == 'BF') {
+                if (imageNames[f][SPHERE[t][f]][0] == SPHERE[nt][f]) {
+                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[t][f]][1], 1, nt, nf)
+                } else {
+                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[nt][f]][1], -1, nt, nf)
+                }
+            }
+
+
+        }
+        function rotation(rotates) {
+            let intervalId = null;
+            r1 = rotates[0]
+            r2 = rotates[1]
+            r3 = rotates[2]
+            r4 = rotates[3]
+            function rotation_step() {
+                let res = 0
+                res += r1()
+                res += r2()
+                res += r3()
+                res += r4()
+                if (res != 4) {
+                    clearInterval(intervalId);
+                    intervalId = null;
+                }
+            }
+            intervalId = setInterval(rotation_step, 50)
+        }
+
+        function rotate_top(direction) {
+            rotate1 = turn_sphere(1, 'BT', direction);
+            rotate2 = turn_sphere(2, 'BT', -direction);
+            rotate3 = turn_sphere(3, 'BT', direction);
+            rotate4 = turn_sphere(4, 'BT', -direction);
+            rotation([rotate1, rotate2, rotate3, rotate4]);
+        }
+        function rotate_bottom(direction) {
+            rotate5 = turn_sphere(5, 'BT', direction);
+            rotate6 = turn_sphere(6, 'BT', -direction);
+            rotate7 = turn_sphere(7, 'BT', direction);
+            rotate8 = turn_sphere(8, 'BT', -direction);
+            rotation([rotate5, rotate6, rotate7, rotate8]);
+        }
+        function rotate_front(direction) {
+            rotate1 = turn_sphere(1, 'BF', direction);
+            rotate5 = turn_sphere(5, 'BF', -direction);
+            rotate8 = turn_sphere(8, 'BF', direction);
+            rotate4 = turn_sphere(4, 'BF', -direction);
+            rotation([rotate1, rotate5, rotate8, rotate4]);
+        }
+        function rotate_back(direction) {
+            rotate2 = turn_sphere(2, 'BF', direction);
+            rotate6 = turn_sphere(6, 'BF', -direction);
+            rotate7 = turn_sphere(7, 'BF', direction);
+            rotate3 = turn_sphere(3, 'BF', -direction);
+            rotation([rotate2, rotate6, rotate7, rotate3]);
+        }
+        function rotate_right(direction) {
+            rotate1 = turn_sphere(1, 'LR', direction);
+            rotate2 = turn_sphere(2, 'LR', -direction);
+            rotate6 = turn_sphere(6, 'LR', direction);
+            rotate5 = turn_sphere(5, 'LR', -direction);
+            rotation([rotate1, rotate2, rotate6, rotate5]);
+        }
+        function rotate_left(direction) {
+            rotate4 = turn_sphere(4, 'LR', direction);
+            rotate3 = turn_sphere(3, 'LR', -direction);
+            rotate7 = turn_sphere(7, 'LR', direction);
+            rotate8 = turn_sphere(8, 'LR', -direction);
+            rotation([rotate4, rotate3, rotate7, rotate8]);
+        }
+
+        function set_shining_start(idx1, idx2, idx3, idx4) {
+            function turn_on() {
+                //shinings[sphere_indices[idx1]].style.display = "block";
+                //shinings[sphere_indices[idx2]].style.display = "block";
+                //shinings[sphere_indices[idx3]].style.display = "block";
+                //shinings[sphere_indices[idx4]].style.display = "block";
+                //shinings[sphere_indices[idx1]].style.opacity = "1.0";
+                //shinings[sphere_indices[idx2]].style.opacity = "1.0";
+                //shinings[sphere_indices[idx3]].style.opacity = "1.0";
+                //shinings[sphere_indices[idx4]].style.opacity = "1.0";
+            }
+            return turn_on;
+        }
+
+        function set_shining_stop(idx1, idx2, idx3, idx4) {
+            function turn_off() {
+                //shinings[sphere_indices[idx1]].style.display = "none";
+                //shinings[sphere_indices[idx2]].style.display = "none";
+                //shinings[sphere_indices[idx3]].style.display = "none";
+                //shinings[sphere_indices[idx4]].style.display = "none";
+                shinings[sphere_indices[idx1]].style.opacity = "0.0";
+                shinings[sphere_indices[idx2]].style.opacity = "0.0";
+                shinings[sphere_indices[idx3]].style.opacity = "0.0";
+                shinings[sphere_indices[idx4]].style.opacity = "0.0";
+            }
+            return turn_off;
+        }
+
+
+        circles[0].addEventListener('click', () => {rotate_right(1)});
+        circles[0].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
+        circles[0].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
+
+
+        circles[7].addEventListener('click', () => {rotate_right(-1)});
+        circles[7].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
+        circles[7].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
+
+
+        circles[1].addEventListener('click', () => {rotate_back(-1)});
+        circles[1].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
+        circles[1].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
+
+
+        circles[11].addEventListener('click', () => {rotate_back(1)});
+        circles[11].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
+        circles[11].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
+
+
+        circles[2].addEventListener('click', () => {rotate_left(1)});
+        circles[2].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
+        circles[2].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
+
+
+        circles[5].addEventListener('click', () => {rotate_left(-1)});
+        circles[5].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
+        circles[5].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
+
+        circles[3].addEventListener('click', () => {rotate_front(-1)});
+        circles[3].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
+        circles[3].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
+
+
+        circles[9].addEventListener('click', () => {rotate_front(1)});
+        circles[9].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
+        circles[9].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
+
+
+        circles[4].addEventListener('click', () => {rotate_top(1)});
+        circles[4].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
+        circles[4].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
+
+        circles[8].addEventListener('click', () => {rotate_top(-1)});
+        circles[8].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
+        circles[8].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
+
+        circles[6].addEventListener('click', () => {rotate_bottom(1)});
+        circles[6].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
+        circles[6].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
+
+        circles[10].addEventListener('click', () => {rotate_bottom(-1)});
+        circles[10].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
+        circles[10].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
+
+    </script>
+</body>
+</html>
