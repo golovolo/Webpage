@@ -1388,6 +1388,72 @@
             [1, 3],
             [1, 3]
         ];
+
+        const loadedImages = new Set();
+
+        preload_images(detect_images2preload(1))
+
+        function preload_images(files) {
+            files.forEach(file => {
+                if (!loadedImages.has(file)) {
+                    const img = new Image();
+                    img.src = file;
+                    img.onload = () => {        
+                        loadedImages.add(file);
+                    };
+                }
+            });
+        }
+
+        function detect_images2preload(sphere_index) {
+            const images2preload = new Set()
+            let t = states[sphere_index - 1][0]
+            let f = states[sphere_index - 1][1]
+            let nf;
+            let nt;
+            const axes = ['BT', 'BF', 'LR'];
+            const directions = [1, -1];
+            
+            for (let direction of directions) {
+                for (let axis of axes) {    
+                    if (axis == 'BT') {
+                        nf = rotate_sphere([t, f], direction)
+                        nt = t
+                        if (imageNames[t][f][0] == nf) {
+                            imageNames[t][f][1].forEach(images2preload.add, images2preload)
+                        } else {
+                            imageNames[t][nf][1].forEach(images2preload.add, images2preload)
+                        }
+                    }
+                    if (axis == 'BF') {
+                        nt = rotate_sphere([f, t], direction)
+                        nf = f
+                        if (imageNames[f][SPHERE[t][f]][0] == SPHERE[nt][f]) {
+                            imageNames[f][SPHERE[t][f]][1].forEach(images2preload.add, images2preload)
+                        } else {
+                            imageNames[f][SPHERE[nt][f]][1].forEach(images2preload.add, images2preload)
+                        }
+                    }
+                    if (axis == 'LR') {
+                        nt = rotate_sphere([SPHERE[t][f], t], direction)
+                        if (direction == 1) {
+                            nf = 7 - t
+                        } else {
+                            nf = t
+                        }
+                        if (imageNames[SPHERE[t][f]][t][0] == nt) {
+                            imageNames[SPHERE[t][f]][t][1].forEach(images2preload.add, images2preload)
+                        } else {
+                            imageNames[SPHERE[t][f]][nt][1].forEach(images2preload.add, images2preload)
+                        }
+                    }
+
+                }
+            }
+            return images2preload
+        }
+
+
         function rotate_sphere(state_sphere, direction) {
             //t = state_sphere[0]
             //f = state_sphere[1]
@@ -1556,6 +1622,11 @@
             rotate3 = turn_sphere(3, 'BT', direction);
             rotate4 = turn_sphere(4, 'BT', -direction);
             rotation([rotate1, rotate2, rotate3, rotate4]);
+            const images2preload = new Set([...detect_images2preload(1),
+                                            ...detect_images2preload(2),
+                                            ...detect_images2preload(3),
+                                            ...detect_images2preload(4)])
+            preload_images(images2preload)
         }
         function rotate_bottom(direction) {
             rotate5 = turn_sphere(5, 'BT', direction);
@@ -1563,6 +1634,11 @@
             rotate7 = turn_sphere(7, 'BT', direction);
             rotate8 = turn_sphere(8, 'BT', -direction);
             rotation([rotate5, rotate6, rotate7, rotate8]);
+            const images2preload = new Set([...detect_images2preload(5),
+                                            ...detect_images2preload(6),
+                                            ...detect_images2preload(7),
+                                            ...detect_images2preload(8)])
+            preload_images(images2preload)
         }
         function rotate_front(direction) {
             rotate1 = turn_sphere(1, 'BF', direction);
@@ -1570,6 +1646,11 @@
             rotate8 = turn_sphere(8, 'BF', direction);
             rotate4 = turn_sphere(4, 'BF', -direction);
             rotation([rotate1, rotate5, rotate8, rotate4]);
+            const images2preload = new Set([...detect_images2preload(1),
+                                            ...detect_images2preload(5),
+                                            ...detect_images2preload(8),
+                                            ...detect_images2preload(4)])
+            preload_images(images2preload)
         }
         function rotate_back(direction) {
             rotate2 = turn_sphere(2, 'BF', direction);
@@ -1577,6 +1658,11 @@
             rotate7 = turn_sphere(7, 'BF', direction);
             rotate3 = turn_sphere(3, 'BF', -direction);
             rotation([rotate2, rotate6, rotate7, rotate3]);
+            const images2preload = new Set([...detect_images2preload(2),
+                                            ...detect_images2preload(6),
+                                            ...detect_images2preload(7),
+                                            ...detect_images2preload(3)])
+            preload_images(images2preload)                           
         }
         function rotate_right(direction) {
             rotate1 = turn_sphere(1, 'LR', direction);
@@ -1584,6 +1670,11 @@
             rotate6 = turn_sphere(6, 'LR', direction);
             rotate5 = turn_sphere(5, 'LR', -direction);
             rotation([rotate1, rotate2, rotate6, rotate5]);
+            const images2preload = new Set([...detect_images2preload(1),
+                                            ...detect_images2preload(2),
+                                            ...detect_images2preload(6),
+                                            ...detect_images2preload(5)])
+            preload_images(images2preload)
         }
         function rotate_left(direction) {
             rotate4 = turn_sphere(4, 'LR', direction);
@@ -1591,6 +1682,11 @@
             rotate7 = turn_sphere(7, 'LR', direction);
             rotate8 = turn_sphere(8, 'LR', -direction);
             rotation([rotate4, rotate3, rotate7, rotate8]);
+            const images2preload = new Set([...detect_images2preload(4),
+                                            ...detect_images2preload(3),
+                                            ...detect_images2preload(7),
+                                            ...detect_images2preload(8)])
+            preload_images(images2preload)
         }
 
         function set_shining_start(idx1, idx2, idx3, idx4) {
