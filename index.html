@@ -1739,72 +1739,72 @@
 
 
         circles[0].addEventListener('click', () => {rotate_right(1)});
-        circles[0].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
-        circles[0].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
-        circles[0].addEventListener("mouseover", preload_images4spheres(1, 2, 6, 5, 'LR', 1));
+        //circles[0].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
+        //circles[0].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
+        circles[0].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', 1)});
 
 
 
         circles[7].addEventListener('click', () => {rotate_right(-1)}); //1 2 6 5 
-        circles[7].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
-        circles[7].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
-        circles[7].addEventListener("mouseover", preload_images4spheres(1, 2, 6, 5, 'LR', -1));
+        //circles[7].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
+        //circles[7].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
+        circles[7].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', -1)});
 
 
         circles[1].addEventListener('click', () => {rotate_back(-1)}); // 2 6 7 3
-        circles[1].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
-        circles[1].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
-        circles[1].addEventListener("mouseover", preload_images4spheres(2, 6, 7, 3, 'BF', -1));
+        //circles[1].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
+        //circles[1].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
+        circles[1].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', -1)});
 
 
         circles[11].addEventListener('click', () => {rotate_back(1)});
-        circles[11].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
-        circles[11].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
-        circles[11].addEventListener("mouseover", preload_images4spheres(2, 6, 7, 3, 'BF', 1));
+        //circles[11].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
+        //circles[11].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
+        circles[11].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', 1)});
 
 
         circles[2].addEventListener('click', () => {rotate_left(1)}); // 4 3 7 8
-        circles[2].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
-        circles[2].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
-        circles[2].addEventListener("mouseover", preload_images4spheres(4, 3, 7, 8, 'LR', 1));
+        //circles[2].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
+        //circles[2].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
+        circles[2].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', 1)});
 
 
         circles[5].addEventListener('click', () => {rotate_left(-1)});
-        circles[5].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
-        circles[5].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
-        circles[5].addEventListener("mouseover", preload_images4spheres(4, 3, 7, 8, 'LR', -1));
+        //circles[5].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
+        //circles[5].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
+        circles[5].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', -1)});
 
         circles[3].addEventListener('click', () => {rotate_front(-1)}); // 1 5 8 4
-        circles[3].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
-        circles[3].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
-        circles[3].addEventListener("mouseover", preload_images4spheres(1, 5, 8, 4, 'BF', -1));
+        //circles[3].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
+        //circles[3].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
+        circles[3].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', -1)});
 
 
         circles[9].addEventListener('click', () => {rotate_front(1)});
-        circles[9].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
-        circles[9].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
-        circles[9].addEventListener("mouseover", preload_images4spheres(1, 5, 8, 4, 'BF', 1));
+        //circles[9].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
+        //circles[9].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
+        circles[9].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', 1)});
 
 
         circles[4].addEventListener('click', () => {rotate_top(1)}); // 1 2 3 4
-        circles[4].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
-        circles[4].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
-        circles[4].addEventListener("mouseover", preload_images4spheres(1, 2, 3, 4, 'BT', 1));
+        //circles[4].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
+        //circles[4].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
+        circles[4].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', 1)});
 
         circles[8].addEventListener('click', () => {rotate_top(-1)});
-        circles[8].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
-        circles[8].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
-        circles[8].addEventListener("mouseover", preload_images4spheres(1, 2, 3, 4, 'BT', -1));
+        //circles[8].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
+        //circles[8].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
+        circles[8].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', -1)});
 
         circles[6].addEventListener('click', () => {rotate_bottom(1)}); // 5 6 7 8
-        circles[6].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
-        circles[6].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
-        circles[6].addEventListener("mouseover", preload_images4spheres(5, 6, 7, 8, 'BT', 1));
+        //circles[6].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
+        //circles[6].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
+        circles[6].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', 1)});
 
         circles[10].addEventListener('click', () => {rotate_bottom(-1)});
-        circles[10].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
-        circles[10].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
-        circles[10].addEventListener("mouseover", preload_images4spheres(5, 6, 7, 8, 'BT', -1));
+        //circles[10].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
+        //circles[10].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
+        circles[10].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', -1)});
 
     </script>
 </body>
