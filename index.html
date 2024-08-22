@@ -350,22 +350,26 @@
         left: 12%;
     }
     
+    
     .sens_area.circle1 {
         top: 107%;
         left: 224%;
     }
     
-    .sens_area.circle1:hover {
-        cursor: none;
+    
+    .circle1.cursor-active:hover {
         cursor: url('cursor/projection_r_d.svg') 35 27, auto;
     }
+
     
     .sens_area.circle2 {
         top: 37%;
         left: 234%;
     }
     
-    .sens_area.circle2:hover {
+    
+    
+    .circle2.cursor-active:hover {
         cursor: url('cursor/projection_f_r.svg') 35 27, auto;
     }
     
@@ -374,7 +378,7 @@
         left: 104%;
     }
     
-    .sens_area.circle3:hover {
+    .circle3.cursor-active:hover {
         cursor: url('cursor/projection_r_d.svg') 35 27, auto;
     }
     
@@ -383,8 +387,8 @@
         left: 124%;
     }
     
-    .sens_area.circle4:hover {
-        cursor: url('cursor/projection_f_r.svg') 35 27, pointer;
+    .circle4.cursor-active:hover {
+        cursor: url('cursor/projection_f_r.svg') 35 27, auto;
     }
     
     .sens_area.circle5 {
@@ -392,7 +396,7 @@
         left: 89%;
     }
     
-    .sens_area.circle5:hover {
+    .circle5.cursor-active:hover {
         cursor: url('cursor/projection_t_r.svg') 38 22, auto;
     }
     
@@ -401,7 +405,7 @@
         left: 24%;
     }
     
-    .sens_area.circle6:hover {
+    .circle6.cursor-active:hover {
         cursor: url('cursor/projection_r_r.svg') 10 42, auto;
     }
     
@@ -410,7 +414,7 @@
         left: 89%;
     }
     
-    .sens_area.circle7:hover {
+    .circle7.cursor-active:hover {
         cursor: url('cursor/projection_t_r.svg') 38 22, auto;
     }
     
@@ -419,7 +423,7 @@
         left: 139%;
     }
     
-    .sens_area.circle8:hover {
+    .circle8.cursor-active:hover {
         cursor: url('cursor/projection_r_r.svg') 10 42, auto;
     }
     
@@ -428,7 +432,7 @@
         left: 259%;
     }
     
-    .sens_area.circle9:hover {
+    .circle9.cursor-active:hover {
         cursor: url('cursor/projection_t_d.svg') 38 22, auto;
     }
     
@@ -437,7 +441,7 @@
         left: 209%;
     }
     
-    .sens_area.circle10:hover {
+    .circle10.cursor-active:hover {
         cursor: url('cursor/projection_f_d.svg') 10 42, auto;
     }
     
@@ -446,7 +450,7 @@
         left: 259%;
     }
     
-    .sens_area.circle11:hover {
+    .circle11.cursor-active:hover {
         cursor: url('cursor/projection_t_d.svg') 38 22, auto;
     }
     
@@ -455,7 +459,7 @@
         left: 324%;
     }
     
-    .sens_area.circle12:hover {
+    .circle12.cursor-active:hover {
         cursor: url('cursor/projection_f_d.svg') 10 42, auto;
     }
     
@@ -660,7 +664,8 @@
             </header>
             <div class="subsection-text">
                 <p>
-                    As a puzzle, Golovolo offers a bit more than most others, providing satisfaction with each touch regardless of how close you are to solving it
+                    As a puzzle, Golovolo offers a bit more than most others, 
+                    providing satisfaction with each touch (bringing satisfacton with each touch) regardless of how close you are to solving it
                 </p>
             </div>
         </div>
@@ -700,12 +705,13 @@
                     <img class="image1" src="imgs_render/sequence/0727.png" alt="Avoiding Extra Parts Image">
                     <img class="image2" src="imgs_render/border.png" alt="Avoiding Extra Parts Border">
                 </div>
-                <h2>Avoiding <br> extra parts</h2>
+                <h2>Avoiding (No) <br> extra parts</h2>
             </header>
             <div class="subsection-text">
                 <p>
-                    Golovolo consists of only 8 spheres without any shell. 
-                    You can overcome the magnetic forces in extreme cases,
+                    Golovolo consists of only 8 spheres (which are connected only by magnetic fields) 
+                    (spheres wich stick together by power of a strong magnetic field) without any shell. 
+                    You can overcome the magnetic forces (them) in extreme cases,
                     but there is plenty of fun in following the rules        
                 </p>
             </div>
@@ -737,6 +743,7 @@
                     Anyone who finds Golovolo 
                     simple despite the point above can 
                     stack a few of them to make a bigger one
+                    If you  want even greater level of challenge, you can can stack a few G-o puzzles together to make a bigger and more complicated one
                 </p>
             </div>
         </div>
@@ -1765,82 +1772,52 @@
             }
             return turn_off;
         }
+        function turn_on_simulation() {
+            
+            
+            circles[0].addEventListener('click', () => {rotate_right(1)});
+            //circles[0].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', 1)});
+            circles[7].addEventListener('click', () => {rotate_right(-1)}); //1 2 6 5 
+            //circles[7].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', -1)});
+            circles[1].addEventListener('click', () => {rotate_back(-1)}); // 2 6 7 3
+            //circles[1].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', -1)});
+            circles[11].addEventListener('click', () => {rotate_back(1)});
+            //circles[11].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', 1)});
+            circles[2].addEventListener('click', () => {rotate_left(1)}); // 4 3 7 8
+            //circles[2].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', 1)});
+            circles[5].addEventListener('click', () => {rotate_left(-1)});
+            //circles[5].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', -1)});
+            circles[3].addEventListener('click', () => {rotate_front(-1)}); // 1 5 8 4
+            //circles[3].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', -1)});
+            circles[9].addEventListener('click', () => {rotate_front(1)});
+            //circles[9].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', 1)});
+            circles[4].addEventListener('click', () => {rotate_top(1)}); // 1 2 3 4
+            //circles[4].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', 1)});
+            circles[8].addEventListener('click', () => {rotate_top(-1)});
+            //circles[8].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', -1)});
+            circles[6].addEventListener('click', () => {rotate_bottom(1)}); // 5 6 7 8
+            //circles[6].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', 1)});
+            circles[10].addEventListener('click', () => {rotate_bottom(-1)});
+            //circles[10].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', -1)});
+
+
+        }
 
         
 
-        circles[0].addEventListener('click', () => {rotate_right(1)});
-        //circles[0].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
-        //circles[0].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
-        //circles[0].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', 1)});
-
-
-
-        circles[7].addEventListener('click', () => {rotate_right(-1)}); //1 2 6 5 
-        //circles[7].addEventListener("mouseover", set_shining_start(1, 2, 6, 5));
-        //circles[7].addEventListener("mouseleave", set_shining_stop(1, 2, 6, 5));
-        //circles[7].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', -1)});
-
-
-        circles[1].addEventListener('click', () => {rotate_back(-1)}); // 2 6 7 3
-        //circles[1].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
-        //circles[1].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
-        //circles[1].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', -1)});
-
-
-        circles[11].addEventListener('click', () => {rotate_back(1)});
-        //circles[11].addEventListener("mouseover", set_shining_start(2, 3, 7, 6));
-        //circles[11].addEventListener("mouseleave", set_shining_stop(2, 3, 7, 6));
-        //circles[11].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', 1)});
-
-
-        circles[2].addEventListener('click', () => {rotate_left(1)}); // 4 3 7 8
-        //circles[2].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
-        //circles[2].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
-        //circles[2].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', 1)});
-
-
-        circles[5].addEventListener('click', () => {rotate_left(-1)});
-        //circles[5].addEventListener("mouseover", set_shining_start(3, 4, 8, 7));
-        //circles[5].addEventListener("mouseleave", set_shining_stop(3, 4, 8, 7));
-        //circles[5].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', -1)});
-
-        circles[3].addEventListener('click', () => {rotate_front(-1)}); // 1 5 8 4
-        //circles[3].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
-        //circles[3].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
-        //circles[3].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', -1)});
-
-
-        circles[9].addEventListener('click', () => {rotate_front(1)});
-        //circles[9].addEventListener("mouseover", set_shining_start(1, 5, 8, 4));
-        //circles[9].addEventListener("mouseleave", set_shining_stop(1, 5, 8, 4));
-        //circles[9].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', 1)});
-
-
-        circles[4].addEventListener('click', () => {rotate_top(1)}); // 1 2 3 4
-        //circles[4].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
-        //circles[4].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
-        //circles[4].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', 1)});
-
-        circles[8].addEventListener('click', () => {rotate_top(-1)});
-        //circles[8].addEventListener("mouseover", set_shining_start(1, 2, 3, 4));
-        //circles[8].addEventListener("mouseleave", set_shining_stop(1, 2, 3, 4));
-        //circles[8].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', -1)});
-
-        circles[6].addEventListener('click', () => {rotate_bottom(1)}); // 5 6 7 8
-        //circles[6].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
-        //circles[6].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
-        //circles[6].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', 1)});
-
-        circles[10].addEventListener('click', () => {rotate_bottom(-1)});
-        //circles[10].addEventListener("mouseover", set_shining_start(5, 6, 7, 8));
-        //circles[10].addEventListener("mouseleave", set_shining_stop(5, 6, 7, 8));
-        //circles[10].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', -1)});
-
         const showButton = document.getElementById('tryLink');
+
+        function activateCursors() {
+            circles.forEach((circle) => {
+                circle.classList.add("cursor-active");
+            });
+            turn_on_simulation();
+        }
 
         // Добавляем обработчик события для кнопки
         showButton.addEventListener('click', function() {
             event.preventDefault();
+            activateCursors();
             // Прокрутка страницы до позиции (например, 800 пикселей от верхней границы)
             window.scrollTo({
                 top: 0,
@@ -1849,51 +1826,58 @@
             for (let i = 0; i < 9; i++) {
                 setTimeout(function() {random_turn();}, 1000 + 800*i);
             }
-
-            // Последовательное мигание кругов
-            //setTimeout(function() { blinkCircle(circles[0]); }, 12000); // Мигание первого круга через 1 секунду
-            //setTimeout(function() { blinkCircle(circles[1]); }, 3000); // Мигание второго круга через 3 секунды
-            //setTimeout(function() { blinkCircle(circles[2]); }, 5000); // Мигание третьего круга через 5 секунд
         });
 
         function random_turn() {
             const r = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
             if (r == 1) {
+                preload_images4spheres(1, 2, 6, 5, 'LR', 1);
                 blinkCircle(circles[0]);
-                setTimeout(function() {rotate_right(1);}, 500)
+                setTimeout(function() {rotate_right(1);}, 500);
             } else if (r == 2) {
+                preload_images4spheres(1, 2, 6, 5, 'LR', -1);
                 blinkCircle(circles[7]);
-                setTimeout(function() {rotate_right(-1);}, 500)
+                setTimeout(function() {rotate_right(-1);}, 500);
             } else if (r == 3) {
+                preload_images4spheres(2, 6, 7, 3, 'BF', -1);
                 blinkCircle(circles[1]);
-                setTimeout(function() {rotate_back(-1);}, 500)
+                setTimeout(function() {rotate_back(-1);}, 500);
             } else if (r == 4) {
+                preload_images4spheres(2, 6, 7, 3, 'BF', 1);
                 blinkCircle(circles[11]);
-                setTimeout(function() {rotate_back(-1);}, 500)
+                setTimeout(function() {rotate_back(-1);}, 500);
             } else if (r == 5) {
+                preload_images4spheres(4, 3, 7, 8, 'LR', 1);
                 blinkCircle(circles[2]);
-                setTimeout(function() {rotate_left(1);}, 500)
+                setTimeout(function() {rotate_left(1);}, 500);
             } else if (r == 6) {
+                preload_images4spheres(4, 3, 7, 8, 'LR', -1);
                 blinkCircle(circles[5]);
-                setTimeout(function() {rotate_left(-1);}, 500)
+                setTimeout(function() {rotate_left(-1);}, 500);
             } else if (r == 7) {
+                preload_images4spheres(1, 5, 8, 4, 'BF', -1);
                 blinkCircle(circles[3]);
-                setTimeout(function() {rotate_front(-1);}, 500)
+                setTimeout(function() {rotate_front(-1);}, 500);
             } else if (r == 8) {
+                preload_images4spheres(1, 5, 8, 4, 'BF', 1);
                 blinkCircle(circles[9]);
-                setTimeout(function() {rotate_front(1);}, 500)
+                setTimeout(function() {rotate_front(1);}, 500);
             } else if (r == 9) {
+                preload_images4spheres(1, 2, 3, 4, 'BT', 1);
                 blinkCircle(circles[4]);
-                setTimeout(function() {rotate_top(1);}, 500)
+                setTimeout(function() {rotate_top(1);}, 500);
             } else if (r == 10) {
+                preload_images4spheres(1, 2, 3, 4, 'BT', -1);
                 blinkCircle(circles[8]);
-                setTimeout(function() {rotate_top(-1);}, 500)
+                setTimeout(function() {rotate_top(-1);}, 500);
             } else if (r == 11) {
+                preload_images4spheres(5, 6, 7, 8, 'BT', 1);
                 blinkCircle(circles[6]);
                 setTimeout(function() {rotate_bottom(1);}, 500)
             } else if (r == 12) {
+                preload_images4spheres(5, 6, 7, 8, 'BT', -1);
                 blinkCircle(circles[10]);
-                setTimeout(function() {rotate_bottom(-1);}, 500)
+                setTimeout(function() {rotate_bottom(-1);}, 500);
             }
 
         }
