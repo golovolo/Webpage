@@ -1,76 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1X60J07WH"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V1X60J07WH');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GOLOVOLO</title>
     <link rel="icon" href="imgs/G_32x32.png" type="image/png" sizes="32x32">
     <style>
         :root {
-            --content-width: 100%; /* Изначальное значение */
+            --content-width: 100%;
         }
     body {
         margin: 0;
         padding: 0;
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
         scroll-behavior: smooth;
-        #position: absolute;
-        #overflow: auto;
         
     }
     
     .content {
-        #position: absolute;
         z-index: 10;
-        #min-height: 100vh;
-        #max-width: 50%;
-        #padding-left: 25%;
-        #padding-bottom: 30px;
-        #--content-width: calc(100% - 50%);
-        #overflow: none;
-        #background-color: #fff;
     }
 
     .content2 {
-        #position: absolute;
         z-index: 5;
-        #height: 100vh;
         margin-top: auto;
-        #overflow: hidden; /* Disable scrolling for content2 initially */
-        #background: #f0f0f0;
-        #opacity: 0; /* Initially hidden */
         transition: opacity 0.5s ease-in-out;
     }
 
     
 
-    
-    /* Если ширина экрана не превышает 20 см */
     @media (max-width: 15cm) {
         .content {
-            #max-width: 100%;
             padding-left: 0;
             padding-right: 0;
             width: 100%;
-            #--content-width: width;
         }
         .content2 {
-            #max-width: 100%;
             padding-left: 0;
             padding-right: 0;
             width: 100%;
-            #--content-width: width;
         }
     }
 
-    /* Если ширина экрана от 20 до 30 см */
     @media (min-width: 15cm) and (max-width: 30cm) {
         .content {
             width: 15cm;
-            #max-width: 20cm;
             padding-left: calc((100% - 15cm) / 2);
             padding-right: calc((100% - 15cm) / 2);
-            
-            #--content-width: width;
         }
         .content2 {
             width: 15cm;
@@ -79,14 +66,12 @@
         }
     }
 
-    /* Если ширина экрана больше 30 см */
+
     @media (min-width: 30cm) {
         .content {
-            #max-width: 50%;
             padding-left: 25%;
             padding-right: 25%;
             width: calc(100% - 50%);
-            #--content-width: width;
         }
         .content2 {
             padding-left: 25%;
@@ -125,7 +110,6 @@
     .subsection-image90 img {
         max-width: 100%;
         max-height: 50%;
-        #object-fit: cover;
         transform: rotate(90deg);
     }
     
@@ -135,7 +119,6 @@
         margin-left: 10%;
         height: 100%;
         width: 80%;
-        #font-size: 300%;
         font-size: calc(var(--logo-width) * 0.035);
         
     }
@@ -147,10 +130,6 @@
         grid-template-columns: 1fr 2fr;
     }
     
-    .subsection header h2 {
-        #font-size: (var(--content-width) * 5.8);
-        #color: #9c0f0f;
-    }
 
     .subsection-text {
         text-align: center;
@@ -158,10 +137,6 @@
         font-size: 1em;
     }
 
-    .subsection p {
-        #font-size: calc(var(--content-width) * 0.2);
-    }
-    
     .video-container {
         position: relative;
         padding-bottom: 60%;
@@ -181,7 +156,6 @@
         position: relative;
         width: 80%;
         left: 10%;
-        #font-size: 2vw;
         font-size: calc(var(--logo-width) * 0.035);
     }
 
@@ -193,27 +167,27 @@
     form {
             display: flex;
             flex-direction: column;
-            gap: 25%; /* Отступы между элементами формы */
+            gap: 25%;
             background-color: transparent;
-            padding: 5%; /* Внутренние отступы формы */
+            padding: 5%;
             border: none;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Адаптивная ширина формы */
+            width: 90%;
             margin-left: 0%;
             
     }
 
     input[type="email"] {
-        font-size: 1em; /* Размер шрифта пропорционален основному размеру шрифта */
-        padding: 0.5em; /* Внутренние отступы поля ввода */
+        font-size: 1em;
+        padding: 0.5em;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
 
     input[type="submit"] {
-        font-size: 1em; /* Размер шрифта пропорционален основному размеру шрифта */
-        padding: 0.5em; /* Внутренние отступы кнопки */
+        font-size: 1em;
+        padding: 0.5em;
         border: none;
         border-radius: 4px;
         background-color: #000000;
@@ -285,11 +259,9 @@
     }
     
     .sens_area {
-        #background-color: transparent;
         background-color: black;
         width: 70%;
         height: 70%;
-        #visibility: hidden;
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
     }
@@ -469,13 +441,13 @@
         width: 100%;
     }
     #tryLink {
-        color: black; /* Устанавливаем цвет текста ссылки в чёрный */
-        text-decoration: underline; /* Добавляем подчеркивание */
+        color: black;
+        text-decoration: underline;
     }
 
     #tryLink:hover {
-        color: gray; /* Цвет ссылки при наведении */
-        text-decoration: none; /* Убираем подчеркивание при наведении */
+        color: gray;
+        text-decoration: none;
     }
     
 
@@ -777,21 +749,14 @@
             xhr.open('POST', "https://docs.google.com/forms/d/e/1FAIpQLSc7YK1bl0Z9dPOTk1I4RhqJvNoVVAAZmVfNRT8ICMjPf69-Rw/formResponse", true);
             xhr.send(data);
             event.preventDefault();
-            
-            // Симулируем успешную отправку, если нужно
             form.style.display = 'none';
             document.querySelector('.success-message').style.display = 'block';
-            
-            // Очистите форму после отправки
-            // event.target.reset();
         });
 
         function checkOrientation() {
             if (window.innerWidth < 768 && window.innerHeight < window.innerWidth) {
-                // Landscape orientation on mobile
                 document.getElementById('container').classList.add('landscape');
             } else {
-                // Portrait orientation on mobile or larger screens
                 document.getElementById('container').classList.remove('landscape');
             }
         }
@@ -1489,7 +1454,6 @@
             let currentImageIndex;
             let rotated_img;
             let nr = SPHERE[nt][nf];
-            //console.log(nr);
             const cube_img = cube_container.querySelector('.cube-image');
             const cube_img120 = cube_container.querySelector('.cube-image120');
             const cube_img240 = cube_container.querySelector('.cube-image240');
@@ -1546,7 +1510,6 @@
                 rotated_img.src = imageName;
                 currentImageIndex += order;
 
-                // Check if we've reached the last image
                 if (currentImageIndex >= seq_names.length || currentImageIndex <= -1) {
                     //clearInterval(rotationInterval);
                     //rotationInterval = null;
@@ -1741,14 +1704,12 @@
             turn_on_simulation();
         }
 
-        // Добавляем обработчик события для кнопки
         showButton.addEventListener('click', function() {
             event.preventDefault();
             activateCursors();
-            // Прокрутка страницы до позиции (например, 800 пикселей от верхней границы)
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth' // Плавная прокрутка
+                behavior: 'smooth'
             });
             for (let i = 0; i < 9; i++) {
                 setTimeout(function() {random_turn();}, 1000 + 800*i);
@@ -1810,11 +1771,10 @@
         }
 
 
-        // Функция для мигания круга
         function blinkCircle(circle) {
-            circle.style.opacity = '0.5'; // Делаем круг видимым
+            circle.style.opacity = '0.5';
             setTimeout(function() {
-                circle.style.opacity = '0'; // Снова скрываем через 1 секунду
+                circle.style.opacity = '0';
             }, 300);
         }
 
