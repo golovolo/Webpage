@@ -156,15 +156,18 @@
         position: relative;
         width: 80%;
         left: 10%;
+        padding-bottom: 10%;
         font-size: calc(var(--logo-width) * 0.035);
     }
 
     .subscription p {
         font-size: 1em;
+        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
         
     }
     
     form {
+        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
             display: flex;
             flex-direction: column;
             gap: 25%;
@@ -176,9 +179,11 @@
             width: 90%;
             margin-left: 0%;
             
+            
     }
 
     input[type="email"] {
+        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
         font-size: 1em;
         padding: 0.5em;
         border: 1px solid #ccc;
@@ -186,6 +191,7 @@
     }
 
     input[type="submit"] {
+        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
         font-size: 1em;
         padding: 0.5em;
         border: none;
@@ -726,18 +732,17 @@
             </div>
         </div>
         <div class="subscription" id="sub_form">
-            <h2>Try Golovolo and subscribe</h2>
+            <h2>Don't miss the release</h2>
             <div class="email-form" id="email">
                 <p>
-                    Golovolo is currently under development and not yet ready for mass production. 
-                    However, you can <a href="#" id="tryLink">try it right now</a>. If you enjoy our project, feel free to stay 
-                    in touch with us by leaving your email, and we will inform you about any updates.
+                    Golovolo is currently in development and not yet ready for mass production. 
+                    However, you can <a href="#" id="tryLink">try it out now</a>.  If you like our project, feel free to join the waitlist.
                 </p>
                 <form id="subscribe-form">
                     <input type="email" name="entry.331321320" placeholder="Enter your email" required>
-                    <input type="submit" value="Subscribe">
+                    <input type="submit" value="JOIN WAITLIST">
                 </form>
-                <div class="success-message">Thank you for subscribing!</div>
+                <div class="success-message">Thank you for joining!</div>
             </div>
         </div>
         
@@ -785,12 +790,12 @@
             document.documentElement.style.setProperty('--body-height', `${bodyHeight}px`);
         }
 
-        window.addEventListener('load', setBackgroundHeight);
-        window.addEventListener('resize', setBackgroundHeight);
-        window.addEventListener('scroll', setBackgroundHeight);
-        window.addEventListener('load', detectDevice);
-        window.addEventListener('resize', detectDevice);
-        window.addEventListener('scroll', detectDevice);
+        //window.addEventListener('load', setBackgroundHeight);
+        //window.addEventListener('resize', setBackgroundHeight);
+        //window.addEventListener('scroll', setBackgroundHeight);
+        //window.addEventListener('load', detectDevice);
+        //window.addEventListener('resize', detectDevice);
+        //window.addEventListener('scroll', detectDevice);
         ids = ["header",
                 //"simulation",
                 "satisfying",
