@@ -1,1301 +1,1099 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V1X60J07WH"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-V1X60J07WH');
-    </script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOLOVOLO</title>
-    <link rel="icon" href="imgs/G_32x32.png" type="image/png" sizes="32x32">
+    <title>Golovolo</title>
+    <link rel="icon" type="image/png" href="public/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --content-width: 100%;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
-        scroll-behavior: smooth;
-        
-    }
-    
-    .content {
-        z-index: 10;
-    }
 
-    .content2 {
-        z-index: 5;
-        margin-top: auto;
-        transition: opacity 0.5s ease-in-out;
-    }
+        body {
+            background-color: #000;
+            font-family: 'Geist', sans-serif;
+            padding: 30px;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
 
-    
+        /* Text Styles */
+        .text-body {
+            font-family: 'Geist', sans-serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 660px;
+        }
 
-    @media (max-width: 15cm) {
-        .content {
-            padding-left: 0;
-            padding-right: 0;
+        .text-body-accidental {
+            font-family: 'Geist', sans-serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .text-heading {
+            font-family: 'Geist', sans-serif;
+            font-size: 28px;
+            line-height: 30px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .text-super {
+            font-family: 'Geist', sans-serif;
+            font-size: 45px;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        /* Video Background */
+        .video_background {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .welcome_video {
+            width: 640px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        /* Welcome Area */
+        .welcome_area {
+            position: relative;
             width: 100%;
+            z-index: 2;
         }
-        .content2 {
-            padding-left: 0;
-            padding-right: 0;
+
+        .welcome_header {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 100%;
-            font-size: 3.4vw;
-            
+            max-width: 870px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
         }
-    }
 
-    @media (min-width: 15cm) and (max-width: 30cm) {
-        .content {
-            width: 15cm;
-            padding-left: calc((100% - 15cm) / 2);
-            padding-right: calc((100% - 15cm) / 2);
+        /* Logo */
+        .logo {
+            z-index: 10;
+            min-width: 150px;
         }
-        .content2 {
-            width: 15cm;
-            padding-left: calc((100% - 15cm) / 2);
-            padding-right: calc((100% - 15cm) / 2);
-            font-size: 0.52395cm;
+
+        /* Play Button */
+        .play_button {
+            height: 50px;
+            padding: 0 10px;
+            border: 1px solid rgba(255, 255, 255, 1);
+            border-radius: 20px;
+            background: transparent;
+            font-family: 'Geist', sans-serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            min-width: 110px;
         }
-    }
 
-
-    @media (min-width: 30cm) {
-        .content {
-            padding-left: 25%;
-            padding-right: 25%;
-            width: calc(100% - 50%);
+        .play_button:hover {
+            cursor: pointer;
         }
-        .content2 {
-            padding-left: 25%;
-            padding-right: 25%;
-            width: 50%;
-            font-size: 1.7vw;
-        }
-        
-    }
-    
-    
-    
-    .subsection-image {
-        position: relative;
-        text-align: center;
-        top: 15%;
-        left: 10%;
-        width: 100%;
-        height: auto;
-    }
-    
-    .image1 {
-        position: absolute;
-        top: 10%;
-        left: 25%;
-        width: 50%;
-    }
-    
-    .image2 {
-        position: absolute;
-        top: 11.1%;
-        left: 26%;
-        width: 48%;
-        opacity: 50%;
-    }
-    
-    .subsection-image90 img {
-        max-width: 100%;
-        max-height: 50%;
-        transform: rotate(90deg);
-    }
-    
-    .subsection {
-        margin-bottom: 5%;
-        margin-top: 0%;
-        margin-left: 10%;
-        width: 80%;
-        height: 100%;
-        
-    }
 
-    .subsection header {
-        display: grid;
-        font-size: 1.5em;
-        
-        grid-template-columns: 1fr 2fr;
-    }
-    
-
-    .subsection-text {
-        text-align: center;
-        padding: 0% 5%;
-        font-size: 1em;
-    }
-
-    .video-container {
-        position: relative;
-        padding-bottom: 60%;
-        height: 0;
-        overflow: hidden;
-    }
-    
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 10%;
-        width: 80%;
-        height: 100%;
-    }
-    
-    .subscription {
-        position: relative;
-        width: 80%;
-        left: 10%;
-        padding-bottom: 10%;
-        font-size: 1em;
-    }
-
-    .subscription p {
-        font-size: 1em;
-        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
-        
-    }
-    
-    form {
-        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
+        /* Join Group */
+        .join_group {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 520px;
+            z-index: 10;
             display: flex;
             flex-direction: column;
-            gap: 25%;
-            background-color: transparent;
-            padding: 5%;
-            border: none;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            margin-left: 0%;
-            
-            
-    }
-
-    input[type="email"] {
-        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
-        font-size: 1em;
-        padding: 0.5em;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    input[type="submit"] {
-        font-family: 'Trebuchet MS', 'Montserrat', 'Roboto', Helvetica, sans-serif;
-        font-size: 1em;
-        padding: 0.5em;
-        border: none;
-        border-radius: 4px;
-        background-color: #000000;
-        color: #fff;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .success-message {
-            text-align: center;
-            display: none;
-            color: rgb(0, 0, 0);
-            font-size: 1.5em;
-            margin-top: 1em;
-            margin-bottom: 1em;
+            align-items: center;
+            gap: 20px;
         }
 
-    .background-container {
-        position: relative;
-        left: 25%;
-        background-color: transparent;
-        width: 50%;
-        aspect-ratio: 210 / 219;
-    }
-    
-    .simulation {
-        width: 24%;
-        height: 23%;
-        position: relative;
-        background-color: #fff;
-    }
-    .hidden {
-        transform: translateY(-300%);
-    }
-    .cube-image {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 168%;
-        max-width: 1000px;
-        max-height: 1000px;
-        object-fit: cover;
-    }
-    
-    .cube-image120 {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 168%;
-        max-width: 1000px;
-        max-height: 1000px;
-        object-fit: cover;
-        transform: rotate(120deg);
-    }
-    
-    .cube-image240 {
-        top: 0%;
-        left: 0%;
-        width: 168%;
-        max-width: 1000px;
-        max-height: 1000px;
-        object-fit: cover;
-        transform: rotate(-120deg);
-    }
-    
-    .circle {
-        position: absolute;
-        border-radius: 50%;
-    }
-    
-    .sens_area {
-        background-color: black;
-        width: 70%;
-        height: 70%;
-        opacity: 0;
-        transition: opacity 0.5s ease-in-out;
-        cursor: pointer;
-    }
-    
-    .circle.shining {
-        position: absolute;
-        background-color: yellow;
-        opacity: 50%;
-        border-radius: 50%;
-        width: 164%;
-        height: 164%;
-        display: none;
-    }
-    
-    .cube-container, .border-container, .shining-container {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .cube1, .border1, .shining1 {
-        top: 127%;
-        left: 124%;
-    }
-    
-    .cube2, .border2, .shining2 {
-        top: 62%;
-        left: 236%;
-    }
-    
-    .cube3, .border3, .shining3 {
-        top: 12%;
-        left: 124%;
-    }
-    
-    .cube4, .border4, .shining4 {
-        top: 62%;
-        left: 12%;
-    }
-    
-    .cube5, .border5, .shining5 {
-        top: 257%;
-        left: 124%;
-    }
-    
-    .cube6, .border6, .shining6 {
-        top: 192%;
-        left: 236%;
-    }
-    
-    .cube7, .border7, .shining7 {
-        top: 127%;
-        left: 124%;
-    }
-    
-    .cube8, .border8, .shining8 {
-        top: 192%;
-        left: 12%;
-    }
-    
-    
-    .sens_area.circle1 {
-        top: 107%;
-        left: 224%;
-    }
-    
-    
-    .circle1.cursor-active:hover {
-        cursor: url('cursor/projection_r_d.svg') 35 27, auto;
-    }
+        .join_button {
+            height: 60px;
+            padding: 0 15px;
+            background: #ffffff;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Geist', sans-serif;
+            font-size: 45px;
+            font-weight: 600;
+            color: #000000;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+        }
 
-    
-    .sens_area.circle2 {
-        top: 37%;
-        left: 234%;
-    }
-    
-    
-    
-    .circle2.cursor-active:hover {
-        cursor: url('cursor/projection_f_r.svg') 35 27, auto;
-    }
-    
-    .sens_area.circle3 {
-        top: 37%;
-        left: 104%;
-    }
-    
-    .circle3.cursor-active:hover {
-        cursor: url('cursor/projection_r_d.svg') 35 27, auto;
-    }
-    
-    .sens_area.circle4 {
-        top: 107%;
-        left: 124%;
-    }
-    
-    .circle4.cursor-active:hover {
-        cursor: url('cursor/projection_f_r.svg') 35 27, auto;
-    }
-    
-    .sens_area.circle5 {
-        top: 169%;
-        left: 89%;
-    }
-    
-    .circle5.cursor-active:hover {
-        cursor: url('cursor/projection_t_r.svg') 38 22, auto;
-    }
-    
-    .sens_area.circle6 {
-        top: 197%;
-        left: 24%;
-    }
-    
-    .circle6.cursor-active:hover {
-        cursor: url('cursor/projection_r_r.svg') 10 42, auto;
-    }
-    
-    .sens_area.circle7 {
-        top: 307%;
-        left: 89%;
-    }
-    
-    .circle7.cursor-active:hover {
-        cursor: url('cursor/projection_t_r.svg') 38 22, auto;
-    }
-    
-    .sens_area.circle8 {
-        top: 257%;
-        left: 139%;
-    }
-    
-    .circle8.cursor-active:hover {
-        cursor: url('cursor/projection_r_r.svg') 10 42, auto;
-    }
-    
-    .sens_area.circle9 {
-        top: 169%;
-        left: 259%;
-    }
-    
-    .circle9.cursor-active:hover {
-        cursor: url('cursor/projection_t_d.svg') 38 22, auto;
-    }
-    
-    .sens_area.circle10 {
-        top: 257%;
-        left: 209%;
-    }
-    
-    .circle10.cursor-active:hover {
-        cursor: url('cursor/projection_f_d.svg') 10 42, auto;
-    }
-    
-    .sens_area.circle11 {
-        top: 307%;
-        left: 259%;
-    }
-    
-    .circle11.cursor-active:hover {
-        cursor: url('cursor/projection_t_d.svg') 38 22, auto;
-    }
-    
-    .sens_area.circle12 {
-        top: 197%;
-        left: 324%;
-    }
-    
-    .circle12.cursor-active:hover {
-        cursor: url('cursor/projection_f_d.svg') 10 42, auto;
-    }
-    
-    .logo {
-        display: block;
-        margin: 0 auto;
-        width: 100%;
-    }
-    #tryLink {
-        color: black;
-        text-decoration: underline;
-    }
+        .join_button:hover {
+            cursor: pointer;
+            background: #00ff7f;
+        }
 
-    #tryLink:hover {
-        color: gray;
-        text-decoration: none;
-    }
-    
+        .join_caption {
+            text-align: center;
+            max-width: 540px;
+        }
 
+        /* Content Area */
+        .content_area {
+            width: 100%;
+            margin-top: 730px;
+        }
 
+        /* Reality Proves Block */
+        .reality_proves {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .reality_proves_videos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .reality_proves_video {
+            width: 270px;
+            height: 480px;
+            flex-shrink: 0;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .reality_proves_video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .reality_proves_caption {
+            text-align: center;
+        }
+
+        /* Mobile Styles (less than 680px) */
+        @media (max-width: 679px) {
+            body {
+                padding: 20px;
+            }
+
+            .text-body {
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .text-body-accidental {
+                font-size: 20px;
+                line-height: 25px;
+            }
+
+            .logo {
+                min-width: 130px;
+            }
+
+            .play_button {
+                padding: 8px 20px 12px 20px;
+                height: 45px;
+            }
+
+            .welcome_video {
+                width: 500px;
+            }
+
+            .join_group {
+                top: 370px;
+            }
+
+            .video_background {
+                overflow: hidden;
+            }
+
+            .content_area {
+                margin-top: 550px;
+            }
+
+            .reality_proves_videos {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 15px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding: 0 20px;
+                margin: 0 -20px;
+            }
+
+            .reality_proves_videos::-webkit-scrollbar {
+                display: none;
+            }
+
+            .reality_proves_video {
+                scroll-snap-align: center;
+            }
+
+        }
+
+        /* Simulation Block */
+        .simulation_block {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 679px) {
+            .simulation_block {
+                margin-top: 60px;
+            }
+        }
+
+        .simulation_plate {
+            width: 100%;
+            max-width: 870px;
+            background-color: #171717;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .simulation_container {
+            position: relative;
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 210 / 219;
+        }
+
+        .simulation {
+            width: 24%;
+            height: 23%;
+            position: relative;
+        }
+
+        .cube-image {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 168%;
+            max-width: 1000px;
+            max-height: 1000px;
+            object-fit: cover;
+        }
+
+        .cube-image120 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 168%;
+            max-width: 1000px;
+            max-height: 1000px;
+            object-fit: cover;
+            transform: rotate(120deg);
+        }
+
+        .cube-image240 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 168%;
+            max-width: 1000px;
+            max-height: 1000px;
+            object-fit: cover;
+            transform: rotate(-120deg);
+        }
+
+        .sim-circle {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .sens_area {
+            background-color: #171717;
+            width: 70%;
+            height: 70%;
+            opacity: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Geist', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .sens_area:hover {
+            background-color: #252525;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cube-container, .border-container, .shining-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cube1, .border1, .shining1 { top: 127%; left: 124%; }
+        .cube2, .border2, .shining2 { top: 62%; left: 236%; }
+        .cube3, .border3, .shining3 { top: 12%; left: 124%; }
+        .cube4, .border4, .shining4 { top: 62%; left: 12%; }
+        .cube5, .border5, .shining5 { top: 257%; left: 124%; }
+        .cube6, .border6, .shining6 { top: 192%; left: 236%; }
+        .cube7, .border7, .shining7 { top: 127%; left: 124%; }
+        .cube8, .border8, .shining8 { top: 192%; left: 12%; }
+
+        .sens_area.sim-circle1 { top: 365%; left: 365%; }
+        .sens_area.sim-circle2 { top: -25%; left: 365%; }
+        .sens_area.sim-circle3 { top: -25%; left: -25%; }
+        .sens_area.sim-circle4 { top: 365%; left: -25%; }
+        .sens_area.sim-circle5 { top: -80%; left: 210%; }
+        .sens_area.sim-circle6 { top: 45%; left: -95%; }
+        .sens_area.sim-circle7 { top: 440%; left: 135%; }
+        .sens_area.sim-circle8 { top: 295%; left: 435%; }
+        .sens_area.sim-circle9 { top: -80%; left: 135%; }
+        .sens_area.sim-circle10 { top: 295%; left: -95%; }
+        .sens_area.sim-circle11 { top: 440%; left: 210%; }
+        .sens_area.sim-circle12 { top: 45%; left: 435%; }
+
+        .sens_area.cursor-active:hover { cursor: pointer; }
+
+        .simulation_caption {
+            text-align: center;
+        }
+
+        /* Join Waitlist Block */
+        .join_waitlist_block {
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 679px) {
+            .join_waitlist_block {
+                margin-top: 60px;
+            }
+        }
+
+        .join_waitlist_plate {
+            width: 100%;
+            max-width: 870px;
+            background-color: #171717;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .join_waitlist_heading {
+            text-align: center;
+        }
+
+        .join_waitlist_text {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .join_waitlist_input_wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .join_waitlist_input {
+            width: 100%;
+            height: 55px;
+            border-radius: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0 55px 0 20px;
+            font-family: 'Geist', sans-serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            outline: none;
+        }
+
+        .join_waitlist_input::placeholder {
+            font-family: 'Geist', sans-serif;
+            font-size: 26px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .join_waitlist_submit {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.2s ease;
+        }
+
+        .join_waitlist_submit:hover {
+            opacity: 0.7;
+        }
+
+        .join_waitlist_success {
+            display: none;
+            font-family: 'Geist', sans-serif;
+            font-size: 28px;
+            line-height: 30px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 1);
+            text-align: center;
+        }
+
+        /* Join Waitlist Mobile */
+        @media (max-width: 679px) {
+            .join_waitlist_plate {
+                padding: 30px 20px;
+                gap: 20px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer a:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body>
-    <!-- Content Container -->
-    <div class="content">
-        <div class="header" id="header">
-            <img class="logo" src="imgs_render4/logo2.webp" alt="GOLOVOLO">
-        </div>
-        <div class="background-container">
-            <div class="cursor"></div>
-            <div class="simulation" id="simulation">
-                <!-- Cube 7 -->
-                <div class="shining-container shining7">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 7 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube7">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 7 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 7 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 7 Image">
-                    </div>
-                </div>
-                <div class="border-container border7">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 7 Image">
-                    </div>
-                </div>
-                <!-- Cube 6 -->
-                <div class="shining-container shining6">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 6 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube6">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 6 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 6 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 6 Image">
-                    </div>
-                </div>
-                <div class="border-container border6">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 6 Image">
-                    </div>
-                </div>
-                <!-- Cube 8 -->
-                <div class="shining-container shining8">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 8 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube8">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 8 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 8 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 8 Image">
-                    </div>
-                </div>
-                <div class="border-container border8">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 8 Image">
-                    </div>
-                </div>
-                <!-- Cube 3 -->
-                <div class="shining-container shining3">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 3 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube3">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 3 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 3 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 3 Image">
-                    </div>
-                </div>
-                <div class="border-container border3">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 3 Image">
-                    </div>
-                </div>
-                <!-- Cube 4 -->
-                <div class="shining-container shining4">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 4 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube4">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 4 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 4 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 4 Image">
-                    </div>
-                </div>
-                <div class="border-container border4">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 4 Image">
-                    </div>
-                </div>
-                <!-- Cube 2 -->
-                <div class="shining-container shining2">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 2 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube2">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 2 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 2 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 2 Image">
-                    </div>
-                </div>
-                <div class="border-container border2">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 2 Image">
-                    </div>
-                </div>
-                <!-- Cube 5 -->
-                <div class="shining-container shining5">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 5 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube5">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 5 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 5 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 5 Image">
-                    </div>
-                </div>
-                <div class="border-container border5">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 5 Image">
-                    </div>
-                </div>
-                <!-- Cube 1 -->
-                <div class="shining-container shining1">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/shining.webp" alt="Cube 1 Image">
-                    </div>
-                </div>
-                <div class="cube-container cube1">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/top/front_right/0000.webp" alt="Cube 1 Image">
-                        <img class="cube-image120" src="imgs_render4/right/top_front/0200.webp" alt="Cube 1 Image">
-                        <img class="cube-image240" src="imgs_render4/front/right_top/0127.webp" alt="Cube 1 Image">
-                    </div>
-                </div>
-                <div class="border-container border1">
-                    <div>
-                        <img class="cube-image" src="imgs_render4/border.webp" alt="Cube 1 Image">
-                    </div>
-                </div>
-                <!-- Sensory Areas -->
-                <div class="circle sens_area circle1"></div>
-                <div class="circle sens_area circle2"></div>
-                <div class="circle sens_area circle3"></div>
-                <div class="circle sens_area circle4"></div>
-                <div class="circle sens_area circle5"></div>
-                <div class="circle sens_area circle6"></div>
-                <div class="circle sens_area circle7"></div>
-                <div class="circle sens_area circle8"></div>
-                <div class="circle sens_area circle9"></div>
-                <div class="circle sens_area circle10"></div>
-                <div class="circle sens_area circle11"></div>
-                <div class="circle sens_area circle12"></div>
-            </div>
-        </div>
+    <div class="video_background">
+        <video class="welcome_video" id="welcomeVideo" autoplay muted playsinline>
+            <source src="public/golovolo_promo_demonstration.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
-    
-    <!-- Content2 Container -->
-    <div class="content2" id="content2">
-        <div class="subsection" id="satisfying">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0700.webp" alt="Cube Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Cube Border">
-                </div>
-                <h2>Satisfying object</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    As a puzzle, Golovolo offers a bit more than most others,
-                     bringing satisfacton by each touch regardless of how close you are to solving it.
-                </p>
-            </div>
-        </div>
-        <div class="subsection" id="colorlessness">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0709.webp" alt="Original Design Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Original Design Border">
-                </div>
-                <h2>Original <br> design</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    Golovolo avoids familiar color schemes, 
-                    striving not to blend into the vast sea of assembly puzzles.
-                </p>
-            </div>
-        </div>
-        <div class="subsection" id="structure">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0718.webp" alt="Hidden Complexity Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Hidden Complexity Border">
-                </div>
-                <h2>Hidden complexity</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    Despite looking simple, Golovolo has a complex 
-                    internal structure that includes about 300 magnets.
-                </p>
-            </div>
-        </div>
-        <div class="subsection" id="extraparts">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0727.webp" alt="Avoiding Extra Parts Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Avoiding Extra Parts Border">
-                </div>
-                <h2>No extra <br> parts</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    Golovolo consists of 8 spheres which stick 
-                    together by magnetic forces only. 
-                    You can overcome them in extreme cases,
-                    but there is plenty of fun in following the rules.     
-                </p>
-            </div>
-        </div>
-        <div class="subsection" id="solving">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0736.webp" alt="Hard to Solve Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Hard to Solve Border">
-                </div>
-                <h2>Hard to <br> solve</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    Golovolo has more than 7 billion unique states, making it non-trivial. 
-                    However, it is still possible to solve even if you are not a PhD in group theory.               </p>
-            </div>
-        </div>
-        <div class="subsection" id="potential">
-            <header>
-                <div class="subsection-image">
-                    <img class="image1" src="imgs_render4/sequence/0745.webp" alt="Unlimited Potential Image">
-                    <img class="image2" src="imgs_render4/border.webp" alt="Unlimited Potential Border">
-                </div>
-                <h2>Unlimited potential</h2>
-            </header>
-            <div class="subsection-text">
-                <p>
-                    If you  want even greater level of challenge, you can can stack
-                    a few Golovolo puzzles together to make a bigger and more complicated one.
-                </p>
-            </div>
-        </div>
-        <div class="video-container" id="video">
-            <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; left:0%">
-                <iframe style="position: absolute; top: 10%; left: 10%; width: 80%; height: 80%;" 
-                src="https://www.youtube.com/embed/yFX4yqJlQ0U?si=LHgdA9lDofqXHtaC" 
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-                encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-        <div class="subscription" id="sub_form">
-            <h2>Don't miss the release</h2>
-            <div class="email-form" id="email">
-                <p>
-                    Golovolo is currently under development and not yet ready for mass production. 
-                    However, you can <a href="#" id="tryLink">try it right now</a>.  If you like our project, feel free to join the waitlist.
-                </p>
-                <form id="subscribe-form">
-                    <input type="email" name="entry.331321320" placeholder="Enter your email" required>
-                    <input type="submit" value="JOIN WAITLIST">
-                </form>
-                <div class="success-message">Thank you for joining!</div>
-            </div>
+
+    <section class="welcome_area">
+        <div class="welcome_header">
+            <img src="public/golovolo_logo.svg" alt="Golovolo" class="logo">
+            <button class="play_button" id="playButton">Play</button>
         </div>
         
-    </div>
-    
-    
+        <div class="join_group">
+            <button class="join_button" onclick="document.getElementById('join_waitlist').scrollIntoView({behavior: 'smooth'})">Give it to me!</button>
+            <p class="join_caption text-body">8 satisfying spheres, 6 mysterious symbols. No attachments</p>
+        </div>
+    </section>
+
+    <section class="content_area">
+        <div class="reality_proves">
+            <div class="reality_proves_videos">
+                <div class="reality_proves_video">
+                    <iframe src="https://player.vimeo.com/video/1141206725?badge=0&autopause=0&player_id=0&app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="golovolo_1"></iframe>
+                </div>
+                <div class="reality_proves_video">
+                    <iframe src="https://player.vimeo.com/video/1143112776?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="golovolo_2"></iframe>
+                </div>
+                <div class="reality_proves_video">
+                    <iframe src="https://player.vimeo.com/video/1142599367?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" title="golovolo_3"></iframe>
+                </div>
+            </div>
+            <p class="reality_proves_caption text-body">Golovolo is a puzzle that is difficult to quit solving since the process is pleasant and fun</p>
+        </div>
+
+        <div class="simulation_block">
+            <div class="simulation_plate">
+                <div class="simulation_container">
+                    <div class="simulation" id="simulation">
+                    <!-- Cube 7 -->
+                    <div class="shining-container shining7">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 7 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube7">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 7">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 7">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 7">
+                        </div>
+                    </div>
+                    <div class="border-container border7">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 7 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 6 -->
+                    <div class="shining-container shining6">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 6 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube6">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 6">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 6">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 6">
+                        </div>
+                    </div>
+                    <div class="border-container border6">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 6 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 8 -->
+                    <div class="shining-container shining8">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 8 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube8">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 8">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 8">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 8">
+                        </div>
+                    </div>
+                    <div class="border-container border8">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 8 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 3 -->
+                    <div class="shining-container shining3">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 3 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube3">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 3">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 3">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 3">
+                        </div>
+                    </div>
+                    <div class="border-container border3">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 3 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 4 -->
+                    <div class="shining-container shining4">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 4 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube4">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 4">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 4">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 4">
+                        </div>
+                    </div>
+                    <div class="border-container border4">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 4 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 2 -->
+                    <div class="shining-container shining2">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 2 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube2">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 2">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 2">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 2">
+                        </div>
+                    </div>
+                    <div class="border-container border2">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 2 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 5 -->
+                    <div class="shining-container shining5">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 5 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube5">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 5">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 5">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 5">
+                        </div>
+                    </div>
+                    <div class="border-container border5">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 5 Border">
+                        </div>
+                    </div>
+                    <!-- Cube 1 -->
+                    <div class="shining-container shining1">
+                        <div>
+                            <img class="cube-image" src="imgs_render/shining.png" alt="Cube 1 Shining">
+                        </div>
+                    </div>
+                    <div class="cube-container cube1">
+                        <div>
+                            <img class="cube-image" src="imgs_render/top/front_right/0000.png" alt="Cube 1">
+                            <img class="cube-image120" src="imgs_render/right/top_front/0200.png" alt="Cube 1">
+                            <img class="cube-image240" src="imgs_render/front/bottom_right/0127.png" alt="Cube 1">
+                        </div>
+                    </div>
+                    <div class="border-container border1">
+                        <div>
+                            <img class="cube-image" src="imgs_render/border.png" alt="Cube 1 Border">
+                        </div>
+                    </div>
+                    <!-- Sensory Areas -->
+                    <div class="sim-circle sens_area sim-circle1 cursor-active">↙</div>
+                    <div class="sim-circle sens_area sim-circle2 cursor-active">↖</div>
+                    <div class="sim-circle sens_area sim-circle3 cursor-active">↗</div>
+                    <div class="sim-circle sens_area sim-circle4 cursor-active">↘</div>
+                    <div class="sim-circle sens_area sim-circle5 cursor-active">→</div>
+                    <div class="sim-circle sens_area sim-circle6 cursor-active">↙</div>
+                    <div class="sim-circle sens_area sim-circle7 cursor-active">←</div>
+                    <div class="sim-circle sens_area sim-circle8 cursor-active">↗</div>
+                    <div class="sim-circle sens_area sim-circle9 cursor-active">←</div>
+                    <div class="sim-circle sens_area sim-circle10 cursor-active">↖</div>
+                    <div class="sim-circle sens_area sim-circle11 cursor-active">→</div>
+                    <div class="sim-circle sens_area sim-circle12 cursor-active">↘</div>
+                </div>
+                </div>
+            </div>
+            <p class="simulation_caption text-body">It consists of 8 identical spheres that can be rotated by 4 at a time. Your task is to set the same pictures on each side. It is hard, but you will love it</p>
+        </div>
+
+        <div class="join_waitlist_block" id="join_waitlist">
+            <div class="join_waitlist_plate">
+                <h2 class="join_waitlist_heading text-heading">Join waitlist to get one 👐</h2>
+                <p class="join_waitlist_text text-body">We are preparing a production line to produce the first batch in early 2026. Share your email if you up to get one</p>
+                <form id="subscribe-form" class="join_waitlist_input_wrapper">
+                    <input type="email" name="entry.331321320" class="join_waitlist_input" placeholder="your email" required>
+                    <button type="submit" class="join_waitlist_submit">→</button>
+                </form>
+                <div class="join_waitlist_success">Thank you for joining!</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <a href="mailto:cantwait@golovolo.com" class="text-body">cantwait@golovolo.com</a>
+        <p class="text-body">© GOLOVOLO</p>
+    </footer>
+
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
     <script>
+        const video = document.getElementById('welcomeVideo');
+        const playButton = document.getElementById('playButton');
+        let hasPlayedOnce = false;
+        let isManualMode = false;
 
-        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            const data = new FormData(form);
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', "https://docs.google.com/forms/d/e/1FAIpQLSc7YK1bl0Z9dPOTk1I4RhqJvNoVVAAZmVfNRT8ICMjPf69-Rw/formResponse", true);
-            xhr.send(data);
-            event.preventDefault();
-            form.style.display = 'none';
-            document.querySelector('.success-message').style.display = 'block';
+        // Video ended handler - stop after first autoplay
+        video.addEventListener('ended', function() {
+            if (!isManualMode) {
+                hasPlayedOnce = true;
+                video.pause();
+                video.currentTime = 0;
+                playButton.textContent = 'Play';
+            }
         });
 
-
-        ids = ["header",
-                //"simulation",
-                "satisfying",
-                "colorlessness",
-                "structure",
-                "extraparts",
-                "solving",
-                "potential",
-                "video",
-                "email"
-                ]
-        var id_top = 0;
-
-
-        let prev_num = 0;
-
-        window.addEventListener('scroll', function() {
-            
-            var scroll_pos = window.scrollY;
-            const num = get_image_num_from_pos(scroll_pos);
-            change_imgs(prev_num, num);
-            prev_num = num;
-
-            
+        // Update button text based on video state
+        video.addEventListener('play', function() {
+            playButton.textContent = 'Pause';
         });
-        const start_nums = [0, 9, 18, 27, 36, 45];
-        function change_imgs(prev_num, num) {
-            if (num == prev_num) {
-                return
-            }
-            var prev_subsec_num = 0;
-            var subsec_num = 0;
-            for (let i = 1; i < start_nums.length; i++) {
-                if (prev_num < start_nums[i]) {
-                    break;
-                }
-                prev_subsec_num = i;
-            }
-            for (let i = 1; i < start_nums.length; i++) {
-                if (num < start_nums[i]) {
-                    break;
-                }
-                subsec_num = i;
-            }
-            if (prev_subsec_num == subsec_num) {
-                let img = subsections[subsec_num].querySelector('img');
-                img.src = seq_names_sphere[num];                
-            }
-            else {
-                let img = subsections[subsec_num].querySelector('img');
-                img.src = seq_names_sphere[num];
-                if (num > prev_num) {
-                    let prev_img = subsections[prev_subsec_num].querySelector('img');
-                    prev_img.src = seq_names_sphere[start_nums[subsec_num]];
-                }
-                else {
-                    let prev_img = subsections[prev_subsec_num].querySelector('img');
-                    prev_img.src = seq_names_sphere[start_nums[prev_subsec_num]];
-                }
-            }
-        }
-        function change_illustrations(subsec_num, start_n, end_n) {
-            let intervalId = null;
-            r1 = rotates[0]
-            r2 = rotates[1]
-            r3 = rotates[2]
-            r4 = rotates[3]
-            function rotation_step() {
-                let res = 0
-                res += r1()
-                res += r2()
-                res += r3()
-                res += r4()
-                if (res != 4) {
-                    clearInterval(intervalId);
-                    intervalId = null;
-                }
-            }
-            intervalId = setInterval(rotation_step, 50)
-        }
-        var subsections = document.querySelectorAll('.subsection-image');
-        function get_image_num_from_pos(scroll_pos) {
-            const window_height = window.innerHeight;
-            const mid_height = window_height*1/2;
-            const subsec_height = subsections[1].getBoundingClientRect().top - subsections[0].getBoundingClientRect().top;
-            const subsec_top = subsections[0].getBoundingClientRect().top + scroll_pos;
-            const diff = scroll_pos + mid_height - subsec_top;
-            const diff_max = subsections[5].getBoundingClientRect().bottom - subsections[0].getBoundingClientRect().top;//subsec_height*(subsections.length);
-            const num = Math.floor(diff * (seq_names_sphere.length - 1) / diff_max)
-            console.log(scroll_pos.toString() +" " +diff.toString() +" "+ num.toString() + " " +diff_max.toString());
-            if (diff < 0) {return 0;}
-            if (diff >= diff_max) {
-                return seq_names_sphere.length - 1;
-            }
-            
-            return num;
 
-        }
+        video.addEventListener('pause', function() {
+            playButton.textContent = 'Play';
+        });
 
-        function get_visible_subsection(scroll_pos) {
-            for (let i = 0; i < scroll_borders.length; i++) {
-                if (scroll_pos < scroll_borders[i]) {
-                    return i;
-                }
+        // Play button click handler - plays on loop
+        playButton.addEventListener('click', function() {
+            if (video.paused) {
+                isManualMode = true;
+                video.loop = true;
+                video.play();
+            } else {
+                video.pause();
             }
-            return 1000;
-        }
+        });
 
-        function get_mid_subsection(scroll_pos) {
-            for (let i = 0; i < scroll_borders.length; i++) {
-                if (scroll_pos < scroll_borders[i]) {
-                    return i;
-                }
+        // Video click handler - plays once
+        video.addEventListener('click', function() {
+            if (video.paused) {
+                isManualMode = false;
+                video.loop = false;
+                video.play();
+            } else {
+                video.pause();
             }
-            return 1000;
-        }
+        });
+    </script>
 
-        const seq_names_sphere = [
-                            "imgs_render4/sequence/0700.webp",
-                            "imgs_render4/sequence/0701.webp",
-                            "imgs_render4/sequence/0702.webp",
-                            "imgs_render4/sequence/0703.webp",
-                            "imgs_render4/sequence/0704.webp",
-                            "imgs_render4/sequence/0705.webp",
-                            "imgs_render4/sequence/0706.webp",
-                            "imgs_render4/sequence/0707.webp",
-                            "imgs_render4/sequence/0708.webp",
-                            "imgs_render4/sequence/0709.webp",
-                            "imgs_render4/sequence/0710.webp",
-                            "imgs_render4/sequence/0711.webp",
-                            "imgs_render4/sequence/0712.webp",
-                            "imgs_render4/sequence/0713.webp",
-                            "imgs_render4/sequence/0714.webp",
-                            "imgs_render4/sequence/0715.webp",
-                            "imgs_render4/sequence/0716.webp",
-                            "imgs_render4/sequence/0717.webp",
-                            "imgs_render4/sequence/0718.webp",
-                            "imgs_render4/sequence/0719.webp",
-                            "imgs_render4/sequence/0720.webp",
-                            "imgs_render4/sequence/0721.webp",
-                            "imgs_render4/sequence/0722.webp",
-                            "imgs_render4/sequence/0723.webp",
-                            "imgs_render4/sequence/0724.webp",
-                            "imgs_render4/sequence/0725.webp",
-                            "imgs_render4/sequence/0726.webp",
-                            "imgs_render4/sequence/0727.webp",
-                            "imgs_render4/sequence/0728.webp",
-                            "imgs_render4/sequence/0729.webp",
-                            "imgs_render4/sequence/0730.webp",
-                            "imgs_render4/sequence/0731.webp",
-                            "imgs_render4/sequence/0732.webp",
-                            "imgs_render4/sequence/0733.webp",
-                            "imgs_render4/sequence/0734.webp",
-                            "imgs_render4/sequence/0735.webp",
-                            "imgs_render4/sequence/0736.webp",
-                            "imgs_render4/sequence/0737.webp",
-                            "imgs_render4/sequence/0738.webp",
-                            "imgs_render4/sequence/0739.webp",
-                            "imgs_render4/sequence/0740.webp",
-                            "imgs_render4/sequence/0741.webp",
-                            "imgs_render4/sequence/0742.webp",
-                            "imgs_render4/sequence/0743.webp",
-                            "imgs_render4/sequence/0744.webp",
-                            "imgs_render4/sequence/0745.webp",
-                            "imgs_render4/sequence/0746.webp",
-                            "imgs_render4/sequence/0747.webp",
-                            "imgs_render4/sequence/0748.webp",
-                            "imgs_render4/sequence/0749.webp",
-                            "imgs_render4/sequence/0750.webp",
-                            "imgs_render4/sequence/0751.webp",
-                            "imgs_render4/sequence/0752.webp",
-                            "imgs_render4/sequence/0753.webp",
-                            "imgs_render4/sequence/0754.webp"                           
-                            
-                           ]
-        const scroll_borders = [200,
-                                400,
-                                600,
-                                800,
-                                1000,
-                                1200,
-                                1400]
-
-        const subsection_images = document.querySelectorAll('.subsection-image');
-
+    <!-- Simulation Script -->
+    <script>
         const SPHERE = {
-                    1: {
-                        2: 3,
-                        3: 5,
-                        5: 4,
-                        4: 2
-                    },
-                    2: {
-                        1: 4,
-                        4: 6,
-                        6: 3,
-                        3: 1
-                    },
-                    3: {
-                        1: 2,
-                        2: 6,
-                        6: 5,
-                        5: 1
-                    },
-                    4: {
-                        1: 5,
-                        5: 6,
-                        6: 2,
-                        2: 1
-                    },
-                    5: {
-                        1: 3,
-                        3: 6,
-                        6: 4,
-                        4: 1
-                    },
-                    6: {
-                        2: 4,
-                        4: 5,
-                        5: 3,
-                        3: 2
-                    }
-                }
-        const background_container = document.querySelector('.background-container');
-        const cubeContainers = document.querySelectorAll('.cube-container');
-        const sphere_indices = {1: 7, 2: 5, 3: 3, 4: 4, 5: 6, 6: 1, 7: 0, 8: 2}
-        const circles = document.querySelectorAll('.sens_area');
-        const shinings = document.querySelectorAll('.shining-container')
+            1: { 2: 3, 3: 5, 5: 4, 4: 2 },
+            2: { 1: 4, 4: 6, 6: 3, 3: 1 },
+            3: { 1: 2, 2: 6, 6: 5, 5: 1 },
+            4: { 1: 5, 5: 6, 6: 2, 2: 1 },
+            5: { 1: 3, 3: 6, 6: 4, 4: 1 },
+            6: { 2: 4, 4: 5, 5: 3, 3: 2 }
+        };
 
-        const cursor = document.querySelector('.cursor');
-        cursor.style.display = "none";
+        const simCubeContainers = document.querySelectorAll('.cube-container');
+        const sphere_indices = {1: 7, 2: 5, 3: 3, 4: 4, 5: 6, 6: 1, 7: 0, 8: 2};
+        const simCircles = document.querySelectorAll('.sens_area');
 
-        const imageNames = {1:  {3: [5, [
-                                            "imgs_render4/top/front_right/0000.webp",
-                                            "imgs_render4/top/front_right/0001.webp",
-                                            "imgs_render4/top/front_right/0002.webp",
-                                            "imgs_render4/top/front_right/0003.webp",
-                                            "imgs_render4/top/front_right/0004.webp",
-                                            "imgs_render4/top/front_right/0005.webp",
-                                            "imgs_render4/top/front_right/0006.webp",
-                                            "imgs_render4/top/front_right/0007.webp",
-                                            "imgs_render4/top/front_right/0008.webp",
-                                            "imgs_render4/top/front_right/0009.webp"]],
-                                 5: [4, [
-                                            "imgs_render4/top/right_back/0009.webp",
-                                            "imgs_render4/top/right_back/0010.webp",
-                                            "imgs_render4/top/right_back/0011.webp",
-                                            "imgs_render4/top/right_back/0012.webp",
-                                            "imgs_render4/top/right_back/0013.webp",
-                                            "imgs_render4/top/right_back/0014.webp",
-                                            "imgs_render4/top/right_back/0015.webp",
-                                            "imgs_render4/top/right_back/0016.webp",
-                                            "imgs_render4/top/right_back/0017.webp",
-                                            "imgs_render4/top/right_back/0018.webp"]],
-                                 4: [2, [
-                                            "imgs_render4/top/back_left/0018.webp",
-                                            "imgs_render4/top/back_left/0019.webp",
-                                            "imgs_render4/top/back_left/0020.webp",
-                                            "imgs_render4/top/back_left/0021.webp",
-                                            "imgs_render4/top/back_left/0022.webp",
-                                            "imgs_render4/top/back_left/0023.webp",
-                                            "imgs_render4/top/back_left/0024.webp",
-                                            "imgs_render4/top/back_left/0025.webp",
-                                            "imgs_render4/top/back_left/0026.webp",
-                                            "imgs_render4/top/back_left/0027.webp"]],
-                                 2: [3, [
-                                            "imgs_render4/top/left_front/0027.webp",
-                                            "imgs_render4/top/left_front/0028.webp",
-                                            "imgs_render4/top/left_front/0029.webp",
-                                            "imgs_render4/top/left_front/0030.webp",
-                                            "imgs_render4/top/left_front/0031.webp",
-                                            "imgs_render4/top/left_front/0032.webp",
-                                            "imgs_render4/top/left_front/0033.webp",
-                                            "imgs_render4/top/left_front/0034.webp",
-                                            "imgs_render4/top/left_front/0035.webp",
-                                            "imgs_render4/top/left_front/0036.webp"]]},
-                            3:  {1: [2, [
-                                            "imgs_render4/front/top_left/0100.webp",
-                                            "imgs_render4/front/top_left/0101.webp",
-                                            "imgs_render4/front/top_left/0102.webp",
-                                            "imgs_render4/front/top_left/0103.webp",
-                                            "imgs_render4/front/top_left/0104.webp",
-                                            "imgs_render4/front/top_left/0105.webp",
-                                            "imgs_render4/front/top_left/0106.webp",
-                                            "imgs_render4/front/top_left/0107.webp",
-                                            "imgs_render4/front/top_left/0108.webp",
-                                            "imgs_render4/front/top_left/0109.webp"]],
-                                 2: [6, [
-                                            "imgs_render4/front/left_bottom/0109.webp",
-                                            "imgs_render4/front/left_bottom/0110.webp",
-                                            "imgs_render4/front/left_bottom/0111.webp",
-                                            "imgs_render4/front/left_bottom/0112.webp",
-                                            "imgs_render4/front/left_bottom/0113.webp",
-                                            "imgs_render4/front/left_bottom/0114.webp",
-                                            "imgs_render4/front/left_bottom/0115.webp",
-                                            "imgs_render4/front/left_bottom/0116.webp",
-                                            "imgs_render4/front/left_bottom/0117.webp",
-                                            "imgs_render4/front/left_bottom/0118.webp"]],
-                                 6: [5, [
-                                            "imgs_render4/front/bottom_right/0118.webp",
-                                            "imgs_render4/front/bottom_right/0119.webp",
-                                            "imgs_render4/front/bottom_right/0120.webp",
-                                            "imgs_render4/front/bottom_right/0121.webp",
-                                            "imgs_render4/front/bottom_right/0122.webp",
-                                            "imgs_render4/front/bottom_right/0123.webp",
-                                            "imgs_render4/front/bottom_right/0124.webp",
-                                            "imgs_render4/front/bottom_right/0125.webp",
-                                            "imgs_render4/front/bottom_right/0126.webp",
-                                            "imgs_render4/front/bottom_right/0127.webp"]],
-                                 5: [1, [
-                                            "imgs_render4/front/right_top/0127.webp",
-                                            "imgs_render4/front/right_top/0128.webp",
-                                            "imgs_render4/front/right_top/0129.webp",
-                                            "imgs_render4/front/right_top/0130.webp",
-                                            "imgs_render4/front/right_top/0131.webp",
-                                            "imgs_render4/front/right_top/0132.webp",
-                                            "imgs_render4/front/right_top/0133.webp",
-                                            "imgs_render4/front/right_top/0134.webp",
-                                            "imgs_render4/front/right_top/0135.webp",
-                                            "imgs_render4/front/right_top/0136.webp"]]},
-                            5:  {1: [3, [
-                                            "imgs_render4/right/top_front/0200.webp",
-                                            "imgs_render4/right/top_front/0201.webp",
-                                            "imgs_render4/right/top_front/0202.webp",
-                                            "imgs_render4/right/top_front/0203.webp",
-                                            "imgs_render4/right/top_front/0204.webp",
-                                            "imgs_render4/right/top_front/0205.webp",
-                                            "imgs_render4/right/top_front/0206.webp",
-                                            "imgs_render4/right/top_front/0207.webp",
-                                            "imgs_render4/right/top_front/0208.webp",
-                                            "imgs_render4/right/top_front/0209.webp"]],
-                                3: [6, [
-                                            "imgs_render4/right/front_bottom/0209.webp",
-                                            "imgs_render4/right/front_bottom/0210.webp",
-                                            "imgs_render4/right/front_bottom/0211.webp",
-                                            "imgs_render4/right/front_bottom/0212.webp",
-                                            "imgs_render4/right/front_bottom/0213.webp",
-                                            "imgs_render4/right/front_bottom/0214.webp",
-                                            "imgs_render4/right/front_bottom/0215.webp",
-                                            "imgs_render4/right/front_bottom/0216.webp",
-                                            "imgs_render4/right/front_bottom/0217.webp",
-                                            "imgs_render4/right/front_bottom/0218.webp"]],
-                                6: [4, [
-                                            "imgs_render4/right/bottom_back/0218.webp",
-                                            "imgs_render4/right/bottom_back/0219.webp",
-                                            "imgs_render4/right/bottom_back/0220.webp",
-                                            "imgs_render4/right/bottom_back/0221.webp",
-                                            "imgs_render4/right/bottom_back/0222.webp",
-                                            "imgs_render4/right/bottom_back/0223.webp",
-                                            "imgs_render4/right/bottom_back/0224.webp",
-                                            "imgs_render4/right/bottom_back/0225.webp",
-                                            "imgs_render4/right/bottom_back/0226.webp",
-                                            "imgs_render4/right/bottom_back/0227.webp"]],
-                                4: [1, [
-                                            "imgs_render4/right/back_top/0227.webp",
-                                            "imgs_render4/right/back_top/0228.webp",
-                                            "imgs_render4/right/back_top/0229.webp",
-                                            "imgs_render4/right/back_top/0230.webp",
-                                            "imgs_render4/right/back_top/0231.webp",
-                                            "imgs_render4/right/back_top/0232.webp",
-                                            "imgs_render4/right/back_top/0233.webp",
-                                            "imgs_render4/right/back_top/0234.webp",
-                                            "imgs_render4/right/back_top/0235.webp",
-                                            "imgs_render4/right/back_top/0236.webp"]]},
-                            4:  {1: [5, [
-                                            "imgs_render4/back/top_right/0300.webp",
-                                            "imgs_render4/back/top_right/0301.webp",
-                                            "imgs_render4/back/top_right/0302.webp",
-                                            "imgs_render4/back/top_right/0303.webp",
-                                            "imgs_render4/back/top_right/0304.webp",
-                                            "imgs_render4/back/top_right/0305.webp",
-                                            "imgs_render4/back/top_right/0306.webp",
-                                            "imgs_render4/back/top_right/0307.webp",
-                                            "imgs_render4/back/top_right/0308.webp",
-                                            "imgs_render4/back/top_right/0309.webp"]],
-                                5: [6, [
-                                            "imgs_render4/back/right_bottom/0309.webp",
-                                            "imgs_render4/back/right_bottom/0310.webp",
-                                            "imgs_render4/back/right_bottom/0311.webp",
-                                            "imgs_render4/back/right_bottom/0312.webp",
-                                            "imgs_render4/back/right_bottom/0313.webp",
-                                            "imgs_render4/back/right_bottom/0314.webp",
-                                            "imgs_render4/back/right_bottom/0315.webp",
-                                            "imgs_render4/back/right_bottom/0316.webp",
-                                            "imgs_render4/back/right_bottom/0317.webp",
-                                            "imgs_render4/back/right_bottom/0318.webp"]],
-                                6: [2, [
-                                            "imgs_render4/back/bottom_left/0318.webp",
-                                            "imgs_render4/back/bottom_left/0319.webp",
-                                            "imgs_render4/back/bottom_left/0320.webp",
-                                            "imgs_render4/back/bottom_left/0321.webp",
-                                            "imgs_render4/back/bottom_left/0322.webp",
-                                            "imgs_render4/back/bottom_left/0323.webp",
-                                            "imgs_render4/back/bottom_left/0324.webp",
-                                            "imgs_render4/back/bottom_left/0325.webp",
-                                            "imgs_render4/back/bottom_left/0326.webp",
-                                            "imgs_render4/back/bottom_left/0327.webp"]],
-                                2: [1, [
-                                            "imgs_render4/back/left_top/0327.webp",
-                                            "imgs_render4/back/left_top/0328.webp",
-                                            "imgs_render4/back/left_top/0329.webp",
-                                            "imgs_render4/back/left_top/0330.webp",
-                                            "imgs_render4/back/left_top/0331.webp",
-                                            "imgs_render4/back/left_top/0332.webp",
-                                            "imgs_render4/back/left_top/0333.webp",
-                                            "imgs_render4/back/left_top/0334.webp",
-                                            "imgs_render4/back/left_top/0335.webp",
-                                            "imgs_render4/back/left_top/0336.webp"]]},
-                            2:  {1: [4, [
-                                            "imgs_render4/left/top_back/0400.webp",
-                                            "imgs_render4/left/top_back/0401.webp",
-                                            "imgs_render4/left/top_back/0402.webp",
-                                            "imgs_render4/left/top_back/0403.webp",
-                                            "imgs_render4/left/top_back/0404.webp",
-                                            "imgs_render4/left/top_back/0405.webp",
-                                            "imgs_render4/left/top_back/0406.webp",
-                                            "imgs_render4/left/top_back/0407.webp",
-                                            "imgs_render4/left/top_back/0408.webp",
-                                            "imgs_render4/left/top_back/0409.webp"]],
-                                4: [6, [
-                                            "imgs_render4/left/back_bottom/0409.webp",
-                                            "imgs_render4/left/back_bottom/0410.webp",
-                                            "imgs_render4/left/back_bottom/0411.webp",
-                                            "imgs_render4/left/back_bottom/0412.webp",
-                                            "imgs_render4/left/back_bottom/0413.webp",
-                                            "imgs_render4/left/back_bottom/0414.webp",
-                                            "imgs_render4/left/back_bottom/0415.webp",
-                                            "imgs_render4/left/back_bottom/0416.webp",
-                                            "imgs_render4/left/back_bottom/0417.webp",
-                                            "imgs_render4/left/back_bottom/0418.webp"]],
-                                6: [3, [
-                                            "imgs_render4/left/bottom_front/0418.webp",
-                                            "imgs_render4/left/bottom_front/0419.webp",
-                                            "imgs_render4/left/bottom_front/0420.webp",
-                                            "imgs_render4/left/bottom_front/0421.webp",
-                                            "imgs_render4/left/bottom_front/0422.webp",
-                                            "imgs_render4/left/bottom_front/0423.webp",
-                                            "imgs_render4/left/bottom_front/0424.webp",
-                                            "imgs_render4/left/bottom_front/0425.webp",
-                                            "imgs_render4/left/bottom_front/0426.webp",
-                                            "imgs_render4/left/bottom_front/0427.webp"]],
-                                3: [1, [
-                                            "imgs_render4/left/front_top/0427.webp",
-                                            "imgs_render4/left/front_top/0428.webp",
-                                            "imgs_render4/left/front_top/0429.webp",
-                                            "imgs_render4/left/front_top/0430.webp",
-                                            "imgs_render4/left/front_top/0431.webp",
-                                            "imgs_render4/left/front_top/0432.webp",
-                                            "imgs_render4/left/front_top/0433.webp",
-                                            "imgs_render4/left/front_top/0434.webp",
-                                            "imgs_render4/left/front_top/0435.webp",
-                                            "imgs_render4/left/front_top/0436.webp"]]},
-                            6:  {3: [2, [
-                                            "imgs_render4/bottom/front_left/0500.webp",
-                                            "imgs_render4/bottom/front_left/0501.webp",
-                                            "imgs_render4/bottom/front_left/0502.webp",
-                                            "imgs_render4/bottom/front_left/0503.webp",
-                                            "imgs_render4/bottom/front_left/0504.webp",
-                                            "imgs_render4/bottom/front_left/0505.webp",
-                                            "imgs_render4/bottom/front_left/0506.webp",
-                                            "imgs_render4/bottom/front_left/0507.webp",
-                                            "imgs_render4/bottom/front_left/0508.webp",
-                                            "imgs_render4/bottom/front_left/0509.webp"]],
-                                2: [4, [
-                                            "imgs_render4/bottom/left_back/0509.webp",
-                                            "imgs_render4/bottom/left_back/0510.webp",
-                                            "imgs_render4/bottom/left_back/0511.webp",
-                                            "imgs_render4/bottom/left_back/0512.webp",
-                                            "imgs_render4/bottom/left_back/0513.webp",
-                                            "imgs_render4/bottom/left_back/0514.webp",
-                                            "imgs_render4/bottom/left_back/0515.webp",
-                                            "imgs_render4/bottom/left_back/0516.webp",
-                                            "imgs_render4/bottom/left_back/0517.webp",
-                                            "imgs_render4/bottom/left_back/0518.webp"]],
-                                4: [5, [
-                                            "imgs_render4/bottom/back_right/0518.webp",
-                                            "imgs_render4/bottom/back_right/0519.webp",
-                                            "imgs_render4/bottom/back_right/0520.webp",
-                                            "imgs_render4/bottom/back_right/0521.webp",
-                                            "imgs_render4/bottom/back_right/0522.webp",
-                                            "imgs_render4/bottom/back_right/0523.webp",
-                                            "imgs_render4/bottom/back_right/0524.webp",
-                                            "imgs_render4/bottom/back_right/0525.webp",
-                                            "imgs_render4/bottom/back_right/0526.webp",
-                                            "imgs_render4/bottom/back_right/0527.webp"]],
-                                5: [3, [
-                                            "imgs_render4/bottom/right_front/0527.webp",
-                                            "imgs_render4/bottom/right_front/0528.webp",
-                                            "imgs_render4/bottom/right_front/0529.webp",
-                                            "imgs_render4/bottom/right_front/0530.webp",
-                                            "imgs_render4/bottom/right_front/0531.webp",
-                                            "imgs_render4/bottom/right_front/0532.webp",
-                                            "imgs_render4/bottom/right_front/0533.webp",
-                                            "imgs_render4/bottom/right_front/0534.webp",
-                                            "imgs_render4/bottom/right_front/0535.webp",
-                                            "imgs_render4/bottom/right_front/0536.webp"]]}
+        const imageNames = {
+            1: {
+                3: [5, [
+                    "imgs_render/top/front_right/0000.png",
+                    "imgs_render/top/front_right/0001.png",
+                    "imgs_render/top/front_right/0002.png",
+                    "imgs_render/top/front_right/0003.png",
+                    "imgs_render/top/front_right/0004.png",
+                    "imgs_render/top/front_right/0005.png",
+                    "imgs_render/top/front_right/0006.png",
+                    "imgs_render/top/front_right/0007.png",
+                    "imgs_render/top/front_right/0008.png",
+                    "imgs_render/top/front_right/0009.png"]],
+                5: [4, [
+                    "imgs_render/top/right_back/0009.png",
+                    "imgs_render/top/right_back/0010.png",
+                    "imgs_render/top/right_back/0011.png",
+                    "imgs_render/top/right_back/0012.png",
+                    "imgs_render/top/right_back/0013.png",
+                    "imgs_render/top/right_back/0014.png",
+                    "imgs_render/top/right_back/0015.png",
+                    "imgs_render/top/right_back/0016.png",
+                    "imgs_render/top/right_back/0017.png",
+                    "imgs_render/top/right_back/0018.png"]],
+                4: [2, [
+                    "imgs_render/top/back_left/0018.png",
+                    "imgs_render/top/back_left/0019.png",
+                    "imgs_render/top/back_left/0020.png",
+                    "imgs_render/top/back_left/0021.png",
+                    "imgs_render/top/back_left/0022.png",
+                    "imgs_render/top/back_left/0023.png",
+                    "imgs_render/top/back_left/0024.png",
+                    "imgs_render/top/back_left/0025.png",
+                    "imgs_render/top/back_left/0026.png",
+                    "imgs_render/top/back_left/0027.png"]],
+                2: [3, [
+                    "imgs_render/top/left_front/0027.png",
+                    "imgs_render/top/left_front/0028.png",
+                    "imgs_render/top/left_front/0029.png",
+                    "imgs_render/top/left_front/0030.png",
+                    "imgs_render/top/left_front/0031.png",
+                    "imgs_render/top/left_front/0032.png",
+                    "imgs_render/top/left_front/0033.png",
+                    "imgs_render/top/left_front/0034.png",
+                    "imgs_render/top/left_front/0035.png",
+                    "imgs_render/top/left_front/0036.png"]]
+            },
+            3: {
+                1: [2, [
+                    "imgs_render/front/top_left/0100.png",
+                    "imgs_render/front/top_left/0101.png",
+                    "imgs_render/front/top_left/0102.png",
+                    "imgs_render/front/top_left/0103.png",
+                    "imgs_render/front/top_left/0104.png",
+                    "imgs_render/front/top_left/0105.png",
+                    "imgs_render/front/top_left/0106.png",
+                    "imgs_render/front/top_left/0107.png",
+                    "imgs_render/front/top_left/0108.png",
+                    "imgs_render/front/top_left/0109.png"]],
+                2: [6, [
+                    "imgs_render/front/left_bottom/0109.png",
+                    "imgs_render/front/left_bottom/0110.png",
+                    "imgs_render/front/left_bottom/0111.png",
+                    "imgs_render/front/left_bottom/0112.png",
+                    "imgs_render/front/left_bottom/0113.png",
+                    "imgs_render/front/left_bottom/0114.png",
+                    "imgs_render/front/left_bottom/0115.png",
+                    "imgs_render/front/left_bottom/0116.png",
+                    "imgs_render/front/left_bottom/0117.png",
+                    "imgs_render/front/left_bottom/0118.png"]],
+                6: [5, [
+                    "imgs_render/front/bottom_right/0118.png",
+                    "imgs_render/front/bottom_right/0119.png",
+                    "imgs_render/front/bottom_right/0120.png",
+                    "imgs_render/front/bottom_right/0121.png",
+                    "imgs_render/front/bottom_right/0122.png",
+                    "imgs_render/front/bottom_right/0123.png",
+                    "imgs_render/front/bottom_right/0124.png",
+                    "imgs_render/front/bottom_right/0125.png",
+                    "imgs_render/front/bottom_right/0126.png",
+                    "imgs_render/front/bottom_right/0127.png"]],
+                5: [1, [
+                    "imgs_render/front/right_top/0127.png",
+                    "imgs_render/front/right_top/0128.png",
+                    "imgs_render/front/right_top/0129.png",
+                    "imgs_render/front/right_top/0130.png",
+                    "imgs_render/front/right_top/0131.png",
+                    "imgs_render/front/right_top/0132.png",
+                    "imgs_render/front/right_top/0133.png",
+                    "imgs_render/front/right_top/0134.png",
+                    "imgs_render/front/right_top/0135.png",
+                    "imgs_render/front/right_top/0136.png"]]
+            },
+            5: {
+                1: [3, [
+                    "imgs_render/right/top_front/0200.png",
+                    "imgs_render/right/top_front/0201.png",
+                    "imgs_render/right/top_front/0202.png",
+                    "imgs_render/right/top_front/0203.png",
+                    "imgs_render/right/top_front/0204.png",
+                    "imgs_render/right/top_front/0205.png",
+                    "imgs_render/right/top_front/0206.png",
+                    "imgs_render/right/top_front/0207.png",
+                    "imgs_render/right/top_front/0208.png",
+                    "imgs_render/right/top_front/0209.png"]],
+                3: [6, [
+                    "imgs_render/right/front_bottom/0209.png",
+                    "imgs_render/right/front_bottom/0210.png",
+                    "imgs_render/right/front_bottom/0211.png",
+                    "imgs_render/right/front_bottom/0212.png",
+                    "imgs_render/right/front_bottom/0213.png",
+                    "imgs_render/right/front_bottom/0214.png",
+                    "imgs_render/right/front_bottom/0215.png",
+                    "imgs_render/right/front_bottom/0216.png",
+                    "imgs_render/right/front_bottom/0217.png",
+                    "imgs_render/right/front_bottom/0218.png"]],
+                6: [4, [
+                    "imgs_render/right/bottom_back/0218.png",
+                    "imgs_render/right/bottom_back/0219.png",
+                    "imgs_render/right/bottom_back/0220.png",
+                    "imgs_render/right/bottom_back/0221.png",
+                    "imgs_render/right/bottom_back/0222.png",
+                    "imgs_render/right/bottom_back/0223.png",
+                    "imgs_render/right/bottom_back/0224.png",
+                    "imgs_render/right/bottom_back/0225.png",
+                    "imgs_render/right/bottom_back/0226.png",
+                    "imgs_render/right/bottom_back/0227.png"]],
+                4: [1, [
+                    "imgs_render/right/back_top/0227.png",
+                    "imgs_render/right/back_top/0228.png",
+                    "imgs_render/right/back_top/0229.png",
+                    "imgs_render/right/back_top/0230.png",
+                    "imgs_render/right/back_top/0231.png",
+                    "imgs_render/right/back_top/0232.png",
+                    "imgs_render/right/back_top/0233.png",
+                    "imgs_render/right/back_top/0234.png",
+                    "imgs_render/right/back_top/0235.png",
+                    "imgs_render/right/back_top/0236.png"]]
+            },
+            4: {
+                1: [5, [
+                    "imgs_render/back/top_right/0300.png",
+                    "imgs_render/back/top_right/0301.png",
+                    "imgs_render/back/top_right/0302.png",
+                    "imgs_render/back/top_right/0303.png",
+                    "imgs_render/back/top_right/0304.png",
+                    "imgs_render/back/top_right/0305.png",
+                    "imgs_render/back/top_right/0306.png",
+                    "imgs_render/back/top_right/0307.png",
+                    "imgs_render/back/top_right/0308.png",
+                    "imgs_render/back/top_right/0309.png"]],
+                5: [6, [
+                    "imgs_render/back/right_bottom/0309.png",
+                    "imgs_render/back/right_bottom/0310.png",
+                    "imgs_render/back/right_bottom/0311.png",
+                    "imgs_render/back/right_bottom/0312.png",
+                    "imgs_render/back/right_bottom/0313.png",
+                    "imgs_render/back/right_bottom/0314.png",
+                    "imgs_render/back/right_bottom/0315.png",
+                    "imgs_render/back/right_bottom/0316.png",
+                    "imgs_render/back/right_bottom/0317.png",
+                    "imgs_render/back/right_bottom/0318.png"]],
+                6: [2, [
+                    "imgs_render/back/bottom_left/0318.png",
+                    "imgs_render/back/bottom_left/0319.png",
+                    "imgs_render/back/bottom_left/0320.png",
+                    "imgs_render/back/bottom_left/0321.png",
+                    "imgs_render/back/bottom_left/0322.png",
+                    "imgs_render/back/bottom_left/0323.png",
+                    "imgs_render/back/bottom_left/0324.png",
+                    "imgs_render/back/bottom_left/0325.png",
+                    "imgs_render/back/bottom_left/0326.png",
+                    "imgs_render/back/bottom_left/0327.png"]],
+                2: [1, [
+                    "imgs_render/back/left_top/0327.png",
+                    "imgs_render/back/left_top/0328.png",
+                    "imgs_render/back/left_top/0329.png",
+                    "imgs_render/back/left_top/0330.png",
+                    "imgs_render/back/left_top/0331.png",
+                    "imgs_render/back/left_top/0332.png",
+                    "imgs_render/back/left_top/0333.png",
+                    "imgs_render/back/left_top/0334.png",
+                    "imgs_render/back/left_top/0335.png",
+                    "imgs_render/back/left_top/0336.png"]]
+            },
+            2: {
+                1: [4, [
+                    "imgs_render/left/top_back/0400.png",
+                    "imgs_render/left/top_back/0401.png",
+                    "imgs_render/left/top_back/0402.png",
+                    "imgs_render/left/top_back/0403.png",
+                    "imgs_render/left/top_back/0404.png",
+                    "imgs_render/left/top_back/0405.png",
+                    "imgs_render/left/top_back/0406.png",
+                    "imgs_render/left/top_back/0407.png",
+                    "imgs_render/left/top_back/0408.png",
+                    "imgs_render/left/top_back/0409.png"]],
+                4: [6, [
+                    "imgs_render/left/back_bottom/0409.png",
+                    "imgs_render/left/back_bottom/0410.png",
+                    "imgs_render/left/back_bottom/0411.png",
+                    "imgs_render/left/back_bottom/0412.png",
+                    "imgs_render/left/back_bottom/0413.png",
+                    "imgs_render/left/back_bottom/0414.png",
+                    "imgs_render/left/back_bottom/0415.png",
+                    "imgs_render/left/back_bottom/0416.png",
+                    "imgs_render/left/back_bottom/0417.png",
+                    "imgs_render/left/back_bottom/0418.png"]],
+                6: [3, [
+                    "imgs_render/left/bottom_front/0418.png",
+                    "imgs_render/left/bottom_front/0419.png",
+                    "imgs_render/left/bottom_front/0420.png",
+                    "imgs_render/left/bottom_front/0421.png",
+                    "imgs_render/left/bottom_front/0422.png",
+                    "imgs_render/left/bottom_front/0423.png",
+                    "imgs_render/left/bottom_front/0424.png",
+                    "imgs_render/left/bottom_front/0425.png",
+                    "imgs_render/left/bottom_front/0426.png",
+                    "imgs_render/left/bottom_front/0427.png"]],
+                3: [1, [
+                    "imgs_render/left/front_top/0427.png",
+                    "imgs_render/left/front_top/0428.png",
+                    "imgs_render/left/front_top/0429.png",
+                    "imgs_render/left/front_top/0430.png",
+                    "imgs_render/left/front_top/0431.png",
+                    "imgs_render/left/front_top/0432.png",
+                    "imgs_render/left/front_top/0433.png",
+                    "imgs_render/left/front_top/0434.png",
+                    "imgs_render/left/front_top/0435.png",
+                    "imgs_render/left/front_top/0436.png"]]
+            },
+            6: {
+                3: [2, [
+                    "imgs_render/bottom/front_left/0500.png",
+                    "imgs_render/bottom/front_left/0501.png",
+                    "imgs_render/bottom/front_left/0502.png",
+                    "imgs_render/bottom/front_left/0503.png",
+                    "imgs_render/bottom/front_left/0504.png",
+                    "imgs_render/bottom/front_left/0505.png",
+                    "imgs_render/bottom/front_left/0506.png",
+                    "imgs_render/bottom/front_left/0507.png",
+                    "imgs_render/bottom/front_left/0508.png",
+                    "imgs_render/bottom/front_left/0509.png"]],
+                2: [4, [
+                    "imgs_render/bottom/left_back/0509.png",
+                    "imgs_render/bottom/left_back/0510.png",
+                    "imgs_render/bottom/left_back/0511.png",
+                    "imgs_render/bottom/left_back/0512.png",
+                    "imgs_render/bottom/left_back/0513.png",
+                    "imgs_render/bottom/left_back/0514.png",
+                    "imgs_render/bottom/left_back/0515.png",
+                    "imgs_render/bottom/left_back/0516.png",
+                    "imgs_render/bottom/left_back/0517.png",
+                    "imgs_render/bottom/left_back/0518.png"]],
+                4: [5, [
+                    "imgs_render/bottom/back_right/0518.png",
+                    "imgs_render/bottom/back_right/0519.png",
+                    "imgs_render/bottom/back_right/0520.png",
+                    "imgs_render/bottom/back_right/0521.png",
+                    "imgs_render/bottom/back_right/0522.png",
+                    "imgs_render/bottom/back_right/0523.png",
+                    "imgs_render/bottom/back_right/0524.png",
+                    "imgs_render/bottom/back_right/0525.png",
+                    "imgs_render/bottom/back_right/0526.png",
+                    "imgs_render/bottom/back_right/0527.png"]],
+                5: [3, [
+                    "imgs_render/bottom/right_front/0527.png",
+                    "imgs_render/bottom/right_front/0528.png",
+                    "imgs_render/bottom/right_front/0529.png",
+                    "imgs_render/bottom/right_front/0530.png",
+                    "imgs_render/bottom/right_front/0531.png",
+                    "imgs_render/bottom/right_front/0532.png",
+                    "imgs_render/bottom/right_front/0533.png",
+                    "imgs_render/bottom/right_front/0534.png",
+                    "imgs_render/bottom/right_front/0535.png",
+                    "imgs_render/bottom/right_front/0536.png"]]
+            }
+        };
 
-            };
-
-        states = [
-            [1, 3],
-            [1, 3],
-            [1, 3],
-            [1, 3],
-            [1, 3],
-            [1, 3],
-            [1, 3],
-            [1, 3]
+        let simStates = [
+            [1, 3], [1, 3], [1, 3], [1, 3],
+            [1, 3], [1, 3], [1, 3], [1, 3]
         ];
-
-        //const loadedImages = new Set();
-
-        function preload_images4spheres_specific(sp1, sp2, sp3, sp4, axis, direction) {
-            preload_images(detect_images2preload_specific(sp1, axis, direction));
-            preload_images(detect_images2preload_specific(sp2, axis, -direction));
-            preload_images(detect_images2preload_specific(sp3, axis, direction));
-            preload_images(detect_images2preload_specific(sp4, axis, -direction));
-        };
-
-        function preload_images4spheres(sp1, sp2, sp3, sp4) {
-            preload_images(detect_images2preload(sp1));
-            preload_images(detect_images2preload(sp2));
-            preload_images(detect_images2preload(sp3));
-            preload_images(detect_images2preload(sp4));
-        };
-
-        //preload_images(detect_images2preload(1));
-        preload_images(seq_names_sphere);
 
         function preload_images(files) {
             files.forEach(file => {
@@ -1304,132 +1102,89 @@
             });
         }
 
-        function detect_images2preload_specific(sphere_index, axis, direction) {
-            const images2preload = new Set()
-            let t = states[sphere_index - 1][0]
-            let f = states[sphere_index - 1][1]
-            let nf;
-            let nt; 
-            if (axis == 'BT') {
-                nf = rotate_sphere([t, f], direction)
-                nt = t
-                if (imageNames[t][f][0] == nf) {
-                    imageNames[t][f][1].forEach(images2preload.add, images2preload)
-                } else {
-                    imageNames[t][nf][1].forEach(images2preload.add, images2preload)
-                }
-            }
-            if (axis == 'BF') {
-                nt = rotate_sphere([f, t], direction)
-                nf = f
-                if (imageNames[f][SPHERE[t][f]][0] == SPHERE[nt][f]) {
-                    imageNames[f][SPHERE[t][f]][1].forEach(images2preload.add, images2preload)
-                } else {
-                    imageNames[f][SPHERE[nt][f]][1].forEach(images2preload.add, images2preload)
-                }
-            }
-            if (axis == 'LR') {
-                nt = rotate_sphere([SPHERE[t][f], t], direction)
-                if (direction == 1) {
-                    nf = 7 - t
-                } else {
-                    nf = t
-                }
-                if (imageNames[SPHERE[t][f]][t][0] == nt) {
-                    imageNames[SPHERE[t][f]][t][1].forEach(images2preload.add, images2preload)
-                } else {
-                    imageNames[SPHERE[t][f]][nt][1].forEach(images2preload.add, images2preload)
-                }
-            }
-
-            
-            
-            return images2preload
+        function preload_images4spheres(sp1, sp2, sp3, sp4) {
+            preload_images(detect_images2preload(sp1));
+            preload_images(detect_images2preload(sp2));
+            preload_images(detect_images2preload(sp3));
+            preload_images(detect_images2preload(sp4));
         }
 
         function detect_images2preload(sphere_index) {
-            const images2preload = new Set()
-            let t = states[sphere_index - 1][0]
-            let f = states[sphere_index - 1][1]
-            let nf;
-            let nt;
+            const images2preload = new Set();
+            let t = simStates[sphere_index - 1][0];
+            let f = simStates[sphere_index - 1][1];
             const axes = ['BT', 'BF', 'LR'];
             const directions = [1, -1];
             
             for (let direction of directions) {
-                for (let axis of axes) {    
+                for (let axis of axes) {
+                    let nf, nt;
                     if (axis == 'BT') {
-                        nf = rotate_sphere([t, f], direction)
-                        nt = t
+                        nf = rotate_sphere([t, f], direction);
+                        nt = t;
                         if (imageNames[t][f][0] == nf) {
-                            imageNames[t][f][1].forEach(images2preload.add, images2preload)
+                            imageNames[t][f][1].forEach(img => images2preload.add(img));
                         } else {
-                            imageNames[t][nf][1].forEach(images2preload.add, images2preload)
+                            imageNames[t][nf][1].forEach(img => images2preload.add(img));
                         }
                     }
                     if (axis == 'BF') {
-                        nt = rotate_sphere([f, t], direction)
-                        nf = f
+                        nt = rotate_sphere([f, t], direction);
+                        nf = f;
                         if (imageNames[f][SPHERE[t][f]][0] == SPHERE[nt][f]) {
-                            imageNames[f][SPHERE[t][f]][1].forEach(images2preload.add, images2preload)
+                            imageNames[f][SPHERE[t][f]][1].forEach(img => images2preload.add(img));
                         } else {
-                            imageNames[f][SPHERE[nt][f]][1].forEach(images2preload.add, images2preload)
+                            imageNames[f][SPHERE[nt][f]][1].forEach(img => images2preload.add(img));
                         }
                     }
                     if (axis == 'LR') {
-                        nt = rotate_sphere([SPHERE[t][f], t], direction)
+                        nt = rotate_sphere([SPHERE[t][f], t], direction);
                         if (direction == 1) {
-                            nf = 7 - t
+                            nf = 7 - t;
                         } else {
-                            nf = t
+                            nf = t;
                         }
                         if (imageNames[SPHERE[t][f]][t][0] == nt) {
-                            imageNames[SPHERE[t][f]][t][1].forEach(images2preload.add, images2preload)
+                            imageNames[SPHERE[t][f]][t][1].forEach(img => images2preload.add(img));
                         } else {
-                            imageNames[SPHERE[t][f]][nt][1].forEach(images2preload.add, images2preload)
+                            imageNames[SPHERE[t][f]][nt][1].forEach(img => images2preload.add(img));
                         }
                     }
-
                 }
             }
-            return images2preload
+            return images2preload;
         }
-
 
         function rotate_sphere(state_sphere, direction) {
-            //t = state_sphere[0]
-            //f = state_sphere[1]
-            let nf = SPHERE[state_sphere[0]][state_sphere[1]]
+            let nf = SPHERE[state_sphere[0]][state_sphere[1]];
             if (direction == -1) {
-                nf = 7 - nf
+                nf = 7 - nf;
             }
-            return nf
+            return nf;
         }
 
-
         function turn_sphere(sphere_index, axis, direction) {
-            let t = states[sphere_index - 1][0]
-            let f = states[sphere_index - 1][1]
-            let nf;
-            let nt;
+            let t = simStates[sphere_index - 1][0];
+            let f = simStates[sphere_index - 1][1];
+            let nf, nt;
             if (axis == 'BT') {
-                nf = rotate_sphere([t, f], direction)
-                nt = t
+                nf = rotate_sphere([t, f], direction);
+                nt = t;
             }
             if (axis == 'BF') {
-                nt = rotate_sphere([f, t], direction)
-                nf = f
+                nt = rotate_sphere([f, t], direction);
+                nf = f;
             }
             if (axis == 'LR') {
-                nt = rotate_sphere([SPHERE[t][f], t], direction)
+                nt = rotate_sphere([SPHERE[t][f], t], direction);
                 if (direction == 1) {
-                    nf = 7 - t
+                    nf = 7 - t;
                 } else {
-                    nf = t
+                    nf = t;
                 }
             }
-            states[sphere_index - 1] = [nt, nf]
-            return show_turn(sphere_index, axis, t, f, nt, nf)
+            simStates[sphere_index - 1] = [nt, nf];
+            return show_turn(sphere_index, axis, t, f, nt, nf);
         }
 
         function show_images(cube_container, axis, seq_names, order, nt, nf) {
@@ -1440,296 +1195,143 @@
             const cube_img120 = cube_container.querySelector('.cube-image120');
             const cube_img240 = cube_container.querySelector('.cube-image240');
             if (order == 1) {
-                currentImageIndex = 0
+                currentImageIndex = 0;
             } else {
-                currentImageIndex = seq_names.length - 1
+                currentImageIndex = seq_names.length - 1;
             }
-            //const rotated_img = new Image();
-            //rotated_img = cube_img
-            //rotated_img.classList.add('cube-image');
-            //rotated_img.src = seq_names[currentImageIndex];
-            //let rotationInterval = null;
             if (axis == 'BT') {
-                //rotated_img.style.transform = `rotate(${0}deg)`
-                rotated_img = cube_img
-                rotated_img.style.opacity = "1.0"
-                cube_img120.style.opacity = "0.0"
-                cube_img240.style.opacity = "0.0"
-                //setTimeout(() => {}, 10)
-                //cube_img120.src = imageNames[nr][nt][1][0];
-                //cube_img240.src = imageNames[nf][nr][1][0];
+                rotated_img = cube_img;
+                rotated_img.style.opacity = "1.0";
+                cube_img120.style.opacity = "0.0";
+                cube_img240.style.opacity = "0.0";
             }
             if (axis == 'LR') {
-                //rotated_img.style.transform = `rotate(${120}deg)`
-                rotated_img = cube_img120
-                rotated_img.style.opacity = "1.0"
-                cube_img.style.opacity = "0.0"
-                cube_img240.style.opacity = "0.0"
-                //setTimeout(() => {}, 10)
-                //cube_img.src = imageNames[nt][nf][1][0];
-                //cube_img240.src = imageNames[nf][nr][1][0];
+                rotated_img = cube_img120;
+                rotated_img.style.opacity = "1.0";
+                cube_img.style.opacity = "0.0";
+                cube_img240.style.opacity = "0.0";
             }
             if (axis == 'BF') {
-                //rotated_img.style.transform = `rotate(${-120}deg)`;
-                rotated_img = cube_img240
-                rotated_img.style.opacity = "1.0"
-                cube_img120.style.opacity = "0.0"
-                //setTimeout(() => {}, 10)
-                cube_img.style.opacity = "0.0"
-                //cube_img120.src = imageNames[nr][nt][1][0];
-                //cube_img.src = imageNames[nt][nf][1][0];
+                rotated_img = cube_img240;
+                rotated_img.style.opacity = "1.0";
+                cube_img120.style.opacity = "0.0";
+                cube_img.style.opacity = "0.0";
             }
-
-            //setTimeout(() => {
-                //cube_img.parentNode.replaceChild(rotated_img, cube_img);
-            //}, 50);
-
-
-
 
             function rotateImages() {
                 const imageName = seq_names[currentImageIndex];
                 rotated_img.src = imageName;
                 currentImageIndex += order;
-
                 if (currentImageIndex >= seq_names.length || currentImageIndex <= -1) {
-                    //clearInterval(rotationInterval);
-                    //rotationInterval = null;
-                    //currentImageIndex = 0;
                     currentImageIndex -= order;
                     cube_img.src = imageNames[nt][nf][1][0];
                     cube_img120.src = imageNames[nr][nt][1][0];
                     cube_img240.src = imageNames[nf][nr][1][0];
-                    return 0
+                    return 0;
                 }
-                return 1
+                return 1;
             }
-            //rotationInterval = setInterval(rotateImages, 50);
             return rotateImages;
-
         }
 
         function show_turn(sphere_index, axis, t, f, nt, nf) {
-            const cubeContainer = cubeContainers[sphere_indices[sphere_index]];
-
+            const cubeContainer = simCubeContainers[sphere_indices[sphere_index]];
             if (axis == 'BT') {
                 if (imageNames[t][f][0] == nf) {
-                    return show_images(cubeContainer, axis, imageNames[t][f][1], 1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[t][f][1], 1, nt, nf);
                 } else {
-                    return show_images(cubeContainer, axis, imageNames[t][nf][1], -1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[t][nf][1], -1, nt, nf);
                 }
             }
             if (axis == 'LR') {
                 if (imageNames[SPHERE[t][f]][t][0] == nt) {
-                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][t][1], 1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][t][1], 1, nt, nf);
                 } else {
-                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][nt][1], -1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[SPHERE[t][f]][nt][1], -1, nt, nf);
                 }
             }
             if (axis == 'BF') {
                 if (imageNames[f][SPHERE[t][f]][0] == SPHERE[nt][f]) {
-                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[t][f]][1], 1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[t][f]][1], 1, nt, nf);
                 } else {
-                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[nt][f]][1], -1, nt, nf)
+                    return show_images(cubeContainer, axis, imageNames[f][SPHERE[nt][f]][1], -1, nt, nf);
                 }
             }
-
-
         }
+
         function rotation(rotates) {
             let intervalId = null;
-            r1 = rotates[0]
-            r2 = rotates[1]
-            r3 = rotates[2]
-            r4 = rotates[3]
+            const r1 = rotates[0];
+            const r2 = rotates[1];
+            const r3 = rotates[2];
+            const r4 = rotates[3];
             function rotation_step() {
-                let res = 0
-                res += r1()
-                res += r2()
-                res += r3()
-                res += r4()
+                let res = 0;
+                res += r1();
+                res += r2();
+                res += r3();
+                res += r4();
                 if (res != 4) {
                     clearInterval(intervalId);
                     intervalId = null;
                 }
             }
-            intervalId = setInterval(rotation_step, 50)
+            intervalId = setInterval(rotation_step, 50);
         }
 
-        function rotate_top(direction, next_preload=true) {
-            rotate1 = turn_sphere(1, 'BT', direction);
-            rotate2 = turn_sphere(2, 'BT', -direction);
-            rotate3 = turn_sphere(3, 'BT', direction);
-            rotate4 = turn_sphere(4, 'BT', -direction);
+        function rotate_top(direction, next_preload = true) {
+            const rotate1 = turn_sphere(1, 'BT', direction);
+            const rotate2 = turn_sphere(2, 'BT', -direction);
+            const rotate3 = turn_sphere(3, 'BT', direction);
+            const rotate4 = turn_sphere(4, 'BT', -direction);
             rotation([rotate1, rotate2, rotate3, rotate4]);
-            if (next_preload) {
-                preload_images4spheres(1, 2, 3, 4);
-            }
+            if (next_preload) preload_images4spheres(1, 2, 3, 4);
         }
-        function rotate_bottom(direction, next_preload=true) {
-            rotate5 = turn_sphere(5, 'BT', direction);
-            rotate6 = turn_sphere(6, 'BT', -direction);
-            rotate7 = turn_sphere(7, 'BT', direction);
-            rotate8 = turn_sphere(8, 'BT', -direction);
+
+        function rotate_bottom(direction, next_preload = true) {
+            const rotate5 = turn_sphere(5, 'BT', direction);
+            const rotate6 = turn_sphere(6, 'BT', -direction);
+            const rotate7 = turn_sphere(7, 'BT', direction);
+            const rotate8 = turn_sphere(8, 'BT', -direction);
             rotation([rotate5, rotate6, rotate7, rotate8]);
-            if (next_preload) {
-                preload_images4spheres(5, 6, 7, 8);
-            }
+            if (next_preload) preload_images4spheres(5, 6, 7, 8);
         }
-        function rotate_front(direction, next_preload=true) {
-            rotate1 = turn_sphere(1, 'BF', direction);
-            rotate5 = turn_sphere(5, 'BF', -direction);
-            rotate8 = turn_sphere(8, 'BF', direction);
-            rotate4 = turn_sphere(4, 'BF', -direction);
+
+        function rotate_front(direction, next_preload = true) {
+            const rotate1 = turn_sphere(1, 'BF', direction);
+            const rotate5 = turn_sphere(5, 'BF', -direction);
+            const rotate8 = turn_sphere(8, 'BF', direction);
+            const rotate4 = turn_sphere(4, 'BF', -direction);
             rotation([rotate1, rotate5, rotate8, rotate4]);
-            if (next_preload) {
-                preload_images4spheres(1, 5, 8, 4);
-            }
+            if (next_preload) preload_images4spheres(1, 5, 8, 4);
         }
-        function rotate_back(direction, next_preload=true) {
-            rotate2 = turn_sphere(2, 'BF', direction);
-            rotate6 = turn_sphere(6, 'BF', -direction);
-            rotate7 = turn_sphere(7, 'BF', direction);
-            rotate3 = turn_sphere(3, 'BF', -direction);
-            rotation([rotate2, rotate6, rotate7, rotate3]);  
-            if (next_preload) {
-                preload_images4spheres(2, 6, 7, 3);    
-            }                
+
+        function rotate_back(direction, next_preload = true) {
+            const rotate2 = turn_sphere(2, 'BF', direction);
+            const rotate6 = turn_sphere(6, 'BF', -direction);
+            const rotate7 = turn_sphere(7, 'BF', direction);
+            const rotate3 = turn_sphere(3, 'BF', -direction);
+            rotation([rotate2, rotate6, rotate7, rotate3]);
+            if (next_preload) preload_images4spheres(2, 6, 7, 3);
         }
-        function rotate_right(direction, next_preload=true) {
-            rotate1 = turn_sphere(1, 'LR', direction);
-            rotate2 = turn_sphere(2, 'LR', -direction);
-            rotate6 = turn_sphere(6, 'LR', direction);
-            rotate5 = turn_sphere(5, 'LR', -direction);
+
+        function rotate_right(direction, next_preload = true) {
+            const rotate1 = turn_sphere(1, 'LR', direction);
+            const rotate2 = turn_sphere(2, 'LR', -direction);
+            const rotate6 = turn_sphere(6, 'LR', direction);
+            const rotate5 = turn_sphere(5, 'LR', -direction);
             rotation([rotate1, rotate2, rotate6, rotate5]);
-            if (next_preload) {
-                preload_images4spheres(1, 2, 6, 5);
-            }
+            if (next_preload) preload_images4spheres(1, 2, 6, 5);
         }
-        function rotate_left(direction, next_preload=true) {
-            rotate4 = turn_sphere(4, 'LR', direction);
-            rotate3 = turn_sphere(3, 'LR', -direction);
-            rotate7 = turn_sphere(7, 'LR', direction);
-            rotate8 = turn_sphere(8, 'LR', -direction);
+
+        function rotate_left(direction, next_preload = true) {
+            const rotate4 = turn_sphere(4, 'LR', direction);
+            const rotate3 = turn_sphere(3, 'LR', -direction);
+            const rotate7 = turn_sphere(7, 'LR', direction);
+            const rotate8 = turn_sphere(8, 'LR', -direction);
             rotation([rotate4, rotate3, rotate7, rotate8]);
-            if (next_preload) {
-                preload_images4spheres(4, 3, 7, 8);
-            }
+            if (next_preload) preload_images4spheres(4, 3, 7, 8);
         }
-
-        function turn_on_simulation() {
-            
-            
-            circles[0].addEventListener('click', () => {rotate_right(1)});
-            //circles[0].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', 1)});
-            circles[7].addEventListener('click', () => {rotate_right(-1)}); //1 2 6 5 
-            //circles[7].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 6, 5, 'LR', -1)});
-            circles[1].addEventListener('click', () => {rotate_back(-1)}); // 2 6 7 3
-            //circles[1].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', -1)});
-            circles[11].addEventListener('click', () => {rotate_back(1)});
-            //circles[11].addEventListener("mouseover", () => {preload_images4spheres(2, 6, 7, 3, 'BF', 1)});
-            circles[2].addEventListener('click', () => {rotate_left(1)}); // 4 3 7 8
-            //circles[2].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', 1)});
-            circles[5].addEventListener('click', () => {rotate_left(-1)});
-            //circles[5].addEventListener("mouseover", () => {preload_images4spheres(4, 3, 7, 8, 'LR', -1)});
-            circles[3].addEventListener('click', () => {rotate_front(-1)}); // 1 5 8 4
-            //circles[3].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', -1)});
-            circles[9].addEventListener('click', () => {rotate_front(1)});
-            //circles[9].addEventListener("mouseover", () => {preload_images4spheres(1, 5, 8, 4, 'BF', 1)});
-            circles[4].addEventListener('click', () => {rotate_top(1)}); // 1 2 3 4
-            //circles[4].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', 1)});
-            circles[8].addEventListener('click', () => {rotate_top(-1)});
-            //circles[8].addEventListener("mouseover", () => {preload_images4spheres(1, 2, 3, 4, 'BT', -1)});
-            circles[6].addEventListener('click', () => {rotate_bottom(1)}); // 5 6 7 8
-            //circles[6].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', 1)});
-            circles[10].addEventListener('click', () => {rotate_bottom(-1)});
-            //circles[10].addEventListener("mouseover", () => {preload_images4spheres(5, 6, 7, 8, 'BT', -1)});
-
-
-        }
-
-        
-
-        const showButton = document.getElementById('tryLink');
-
-        function activateCursors() {
-            circles.forEach((circle) => {
-                circle.classList.add("cursor-active");
-            });
-            turn_on_simulation();
-        }
-        showButton.addEventListener('click', function() {
-            
-            event.preventDefault();
-
-            gtag('event', 'click', {
-                'event_category': 'rotation',
-                'event_label': 'click_rotation_link',
-            });
-            //activateCursors();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            for (let i = 0; i < 9; i++) {
-                setTimeout(function() {random_turn();}, 1000 + 800*i);
-            }
-        });
-
-        function random_turn() {
-            const r = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-            if (r == 1) {
-                preload_images4spheres(1, 2, 6, 5, 'LR', 1);
-                blinkCircle(circles[0]);
-                setTimeout(function() {rotate_right(1, false);}, 500);
-            } else if (r == 2) {
-                preload_images4spheres(1, 2, 6, 5, 'LR', -1);
-                blinkCircle(circles[7]);
-                setTimeout(function() {rotate_right(-1, false);}, 500);
-            } else if (r == 3) {
-                preload_images4spheres(2, 6, 7, 3, 'BF', -1);
-                blinkCircle(circles[1]);
-                setTimeout(function() {rotate_back(-1, false);}, 500);
-            } else if (r == 4) {
-                preload_images4spheres(2, 6, 7, 3, 'BF', 1);
-                blinkCircle(circles[11]);
-                setTimeout(function() {rotate_back(-1, false);}, 500);
-            } else if (r == 5) {
-                preload_images4spheres(4, 3, 7, 8, 'LR', 1);
-                blinkCircle(circles[2]);
-                setTimeout(function() {rotate_left(1, false);}, 500);
-            } else if (r == 6) {
-                preload_images4spheres(4, 3, 7, 8, 'LR', -1);
-                blinkCircle(circles[5]);
-                setTimeout(function() {rotate_left(-1, false);}, 500);
-            } else if (r == 7) {
-                preload_images4spheres(1, 5, 8, 4, 'BF', -1);
-                blinkCircle(circles[3]);
-                setTimeout(function() {rotate_front(-1, false);}, 500);
-            } else if (r == 8) {
-                preload_images4spheres(1, 5, 8, 4, 'BF', 1);
-                blinkCircle(circles[9]);
-                setTimeout(function() {rotate_front(1, false);}, 500);
-            } else if (r == 9) {
-                preload_images4spheres(1, 2, 3, 4, 'BT', 1);
-                blinkCircle(circles[4]);
-                setTimeout(function() {rotate_top(1, false);}, 500);
-            } else if (r == 10) {
-                preload_images4spheres(1, 2, 3, 4, 'BT', -1);
-                blinkCircle(circles[8]);
-                setTimeout(function() {rotate_top(-1, false);}, 500);
-            } else if (r == 11) {
-                preload_images4spheres(5, 6, 7, 8, 'BT', 1);
-                blinkCircle(circles[6]);
-                setTimeout(function() {rotate_bottom(1, false);}, 500);
-            } else if (r == 12) {
-                preload_images4spheres(5, 6, 7, 8, 'BT', -1);
-                blinkCircle(circles[10]);
-                setTimeout(function() {rotate_bottom(-1, false);}, 500);
-            }
-
-        }
-
 
         function blinkCircle(circle) {
             circle.style.opacity = '0.5';
@@ -1738,21 +1340,33 @@
             }, 300);
         }
 
-        function activate_analytics_for_simulation() {
-            circles.forEach(circle => {
-                circle.addEventListener('click', function (){
-                    gtag('event', 'click', {
-                            'event_category': 'rotation',
-                            'event_label': 'rotation_by_user',
-                        });
-                    })
-                }
-            )
-        }
+        // Initialize simulation controls
+        simCircles[0].addEventListener('click', () => { rotate_right(1); });
+        simCircles[7].addEventListener('click', () => { rotate_right(-1); });
+        simCircles[1].addEventListener('click', () => { rotate_back(-1); });
+        simCircles[11].addEventListener('click', () => { rotate_back(1); });
+        simCircles[2].addEventListener('click', () => { rotate_left(1); });
+        simCircles[5].addEventListener('click', () => { rotate_left(-1); });
+        simCircles[3].addEventListener('click', () => { rotate_front(-1); });
+        simCircles[9].addEventListener('click', () => { rotate_front(1); });
+        simCircles[4].addEventListener('click', () => { rotate_top(1); });
+        simCircles[8].addEventListener('click', () => { rotate_top(-1); });
+        simCircles[6].addEventListener('click', () => { rotate_bottom(1); });
+        simCircles[10].addEventListener('click', () => { rotate_bottom(-1); });
+    </script>
 
-        turn_on_simulation();
-        activate_analytics_for_simulation();
-
+    <!-- Waitlist Form Script -->
+    <script>
+        document.getElementById('subscribe-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form = event.target;
+            const data = new FormData(form);
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://docs.google.com/forms/d/e/1FAIpQLSc7YK1bl0Z9dPOTk1I4RhqJvNoVVAAZmVfNRT8ICMjPf69-Rw/formResponse', true);
+            xhr.send(data);
+            form.style.display = 'none';
+            document.querySelector('.join_waitlist_success').style.display = 'block';
+        });
     </script>
 </body>
 </html>
